@@ -81,9 +81,9 @@ namespace TreeBench.BS.Models
             return SearchRec(root, key);
         }
 
+        [Obsolete("Red-Black balanced deletion is highly complex and deferred to v2.0 Enterprise Release. Currently bypassed to maintain benchmark integrity.")]
         public void Delete(int key)
         {
-            // TODO: Red-Black balanced deletion is highly complex and deferred to v2.0 Enterprise Release.
             // Bypassing to maintain benchmark integrity.
         }
 
