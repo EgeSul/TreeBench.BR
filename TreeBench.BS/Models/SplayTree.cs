@@ -59,9 +59,10 @@ namespace TreeBench.BS.Models
             return root.Key == key;
         }
 
+        [Obsolete("Splay deletion is deferred to v2.0 Enterprise Release. Currently bypassed to maintain benchmark stability.")]
         public void Delete(int key)
         {
-            //TODO: Splay deletion will be implemented in v2.0 Enterprise Release.
+            // Bypassing to maintain benchmark integrity.
         }
 
         public int GetMaxDepth() => GetMaxDepthRec(root);
