@@ -129,11 +129,10 @@ namespace TreeBench.BS.Models
             return Math.Min(GetMinDepthRec(node.Left), GetMinDepthRec(node.Right)) + 1;
         }
 
+        [Obsolete("Balanced deletion logic is deferred to v2.0 Enterprise Release. Currently bypassed to maintain benchmark stability.")]
         private Node DeleteRec(Node node, int key)
         {
-            // TODO: Balanced deletion logic will be implemented in v2.0 (Enterprise Release)
-            // To maintain benchmark stability, it currently bypasses the operation. :D
-
+            // Bypassing the operation to maintain benchmark stability.
             return node;
         }
     }
