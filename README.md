@@ -344,7 +344,7 @@ dotnet run --configuration Release
 ### Future Releases / Roadmap:
 
 <br>[x] v1.0.0 - AVL & Red-Black Tree benchmarking with advanced memory profiling.
-<br>[ ] v1.5.0 - .NET Dependency Injection
+<br>[X] v1.5.0 - .NET Dependency Injection
 <br>[ ] v2.0.0 - Transitioning to multi-way structures (B+ Tree) and spatial indexing (Quadtree) for enterprise data simulation.
 
 ---
