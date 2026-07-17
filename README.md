@@ -43,7 +43,33 @@ Below is the enterprise layout of the solution, exhibiting a clean Separation of
     ├── TreeBench.BS.csproj          # .NET Project Configuration File with NuGet Manifests
     └── Program.cs                   # IoC Container Registry, App Bootstrapper & Serilog Configuration
 ```
+---
 
+## 🛠️ Enterprise Architectural Breakdown (System Modularity & Purpose)
+
+To maintain a production-grade benchmark ecosystem, TreeBench shifts away from typical academic single-file scripts. Below is a breakdown of **what** has been engineered, **why** it was integrated, and **how** it achieves strict modularity:
+
+### 1. Dependency Injection (DI) Engine
+* **What:** Powered by `Microsoft.Extensions.DependencyInjection`.
+* **Why:** In enterprise systems, hardcoding instances via `new` creates stiff coupling. If a component changes, the whole program snaps. DI decouples execution from instantiations.
+* **How It's Modular:** `Program.cs` serves as the centralized **IoC Container**. Trees are injected as `Transient` bindings under the `IBalancedTree` abstraction, while background workers run as thread-safe `Singletons`. Adding or removing an entire data structure requires changing exactly **one line of code** in the container registry.
+
+### 2. Micro-ORM Data Ingestion (Dapper)
+* **What:** Upgraded from native low-level ADO.NET arrays to Stack Overflow's **Dapper** compilation pipelines.
+* **Why:** Traditional ORMs (like Entity Framework) append heavy tracking proxies that pollute performance benchmarks. Dapper offers the blazing-fast execution speed of raw ADO.NET while completely automating object mapping mechanics.
+* **How It's Modular:** Database ingestion parameters are confined strictly to `DataGenerator.cs`. If the system scales to consume cloud-native NoSQL layers, the domain application service models remain entirely unaffected.
+
+### 3. Graceful Degradation / In-Memory Fallback
+* **What:** An intelligent runtime safety perimeter built inside the entry flow.
+* **Why:** Production databases drop packets, clear active ports, or face localized initialization errors (e.g., SQL Instance Error 26). A standard app would crash instantly or hang the terminal line.
+* **How It's Modular:** Handled cleanly through an isolated conditional verification block (`if-else`). If SQL Server fails to respond within the expected deadline, the lab automatically activates an **Enterprise Fallback Strategy**, synthesizing a 100,000 element mock dataset locally without interrupting the thread telemetry or stalling high-precision `Stopwatch` loops.
+
+### 4. Structured Logging Infrastructures (Serilog)
+* **What:** Diagnostic architecture using **Serilog** configured with simultaneous Console and Rolling File sinks.
+* **Why:** Curating diagnostics via raw `Console.WriteLine` blocks the execution context and leaves zero trails. Real-world platforms require asynchronous, persistent audit logs.
+* **How It's Modular:** All diagnostic output channels are fully parameterized. Serilog formats the log strings dynamically and pipes data onto the system disk (`logs/treebench_perf.txt`) concurrently, allowing historical benchmark analytics to be extracted easily.
+
+---
 ## 🏗️ Architectural Principles Applied
 
 The project strictly follows SOLID design principles, combining Inversion of Control (IoC) and Template Method Patterns to isolate runtime pipelines.
@@ -112,6 +138,29 @@ The lab captures real-time telemetry backed by structural validation parameters:
 * **Deletion Stress Testing:** Executes 5,000 concrete sequential removals to evaluate balancing and restructuring penalties.
 * **Total Rotations & Structural Mutations:** Tracks balancing operations, color changes, page splits, and quadrant divisions.
 * **Structured Logging & Telemetry Reporting:** Managed by Serilog; records telemetry indicators simultaneously to the console with precise formatting and a persistent filesystem sink (logs/treebench_perf.txt).
+  
+  ---
+
+## 📦 Installed NuGet Packages & System Dependencies
+
+The solution leverages industry-standard corporate packages to drive data mapping, dependency tracking, and rolling diagnostics. Below is the package manifest configured inside `TreeBench.BS.csproj`:
+
+| Package Name | Minimum Version | Core Utility within Architecture |
+| :--- | :---: | :--- |
+| **`Microsoft.Data.SqlClient`** | `5.0.0+` | Provides high-performance native ADO.NET pipe connection streams to Microsoft SQL Server instances. |
+| **`Microsoft.Extensions.DependencyInjection`** | `6.0.0+` | Framework-native Inversion of Control (IoC) container engine used to decouple concrete structural model instances from execution triggers. |
+| **`Dapper`** | `2.0.0+` | Blazing-fast micro-ORM utilized to automate raw T-SQL dataset query result mapping straight into volatile C# generic lists without metadata overhead. |
+| **`Serilog`** | `3.0.0+` | Core diagnostic router driving asynchronous structured logging parameters instead of thread-blocking standard outputs. |
+| **`Serilog.Sinks.Console`** | `5.0.0+` | Render sink for Serilog to print stylized, color-coded execution telemetry intervals directly into the active console pipeline. |
+| **`Serilog.Sinks.File`** | `5.0.0+` | Persistent storage sink routing structured execution history lines down onto local rolling text files (`logs/treebench_perf.txt`). |
+
+To manually restore and sync all architectural project dependencies on a fresh deployment station, execute:
+
+```bash
+
+dotnet restore
+
+```
 
 ---
 
@@ -282,14 +331,14 @@ graph TD
 
 </details>
 
-### 4. B+ Tree ('BPlusTree.cs')
+### 4. B+ Tree (`BPlusTree.cs`)
 
 * An $m$-way balanced search tree designed explicitly for database structural indexing loops.
 * Restricts records strictly inside the external leaves while internal pages hold directory values, executing automated Split-Child mutations on saturation boundaries.
 
 <details>
 
-<summary><b>📐 4. B+ Tree (BPlusTree.cs) - Splitting & Ingestion Pipeline</b></summary>
+<summary><b>📐 4. B+ Tree (`BPlusTree.cs`) - Splitting & Ingestion Pipeline</b></summary>
 
 ```mermaid
 
@@ -321,7 +370,7 @@ graph TD
 </details>
 
 
-### 5. Quadtree ('QuadTree.cs')
+### 5. Quadtree (`QuadTree.cs`)
 * Maps single-dimensional integers into absolute 'Point(X, Y)' planes to mock geographical queries.
 * Executes atomic Subdivide splits to break down dense areas into 4 distinct child vectors.
 * Maps numerical keys to structural Point('X, Y') planes, dividing geographical space recursively into four quadrants ('NorthWest, NorthEast, SouthWest, SouthEast') when node capacities are reached.
