@@ -20,7 +20,6 @@ Below is the enterprise layout of the solution, exhibiting a clean Separation of
 ```text
 📂 TreeBench/
 │
-│
 ├── 📂 README.md
 │
 ├── 📂 TreeBench.DB/
@@ -40,7 +39,7 @@ Below is the enterprise layout of the solution, exhibiting a clean Separation of
     │   └── QuadTree.cs              # Quadtree implementation (Spatial 2D Coordinate Index)
     │
     ├── 📂 Services/
-    │   ├── BenchmarkService.cs      # Telemetry Profiler Engine with Deletion Stress Testing
+    │   ├── BenchmarkService.cs      # Telemetry Profiler Engine with Interactive Modes
     │   └── DataGenerator.cs         # Micro-ORM Dapper Data Ingestion Streamer
     │
     ├── TreeBench.BS.csproj          # .NET Project Configuration File with NuGet Manifests
@@ -50,7 +49,7 @@ Below is the enterprise layout of the solution, exhibiting a clean Separation of
 
 ## 🛠️ Enterprise Architectural Breakdown (System Modularity & Purpose)
 
-To maintain a production-grade benchmark ecosystem, TreeBench shifts away from typical academic single-file scripts. Below is a breakdown of **what** has been engineered, **why** it was integrated, and **how** it achieves strict modularity:
+To maintain a production-grade benchmark ecosystem, TreeBench shifts away from typical academic single-file scripts. Below is a breakdown of what has been engineered, why it was integrated, and how it achieves strict modularity:
 
 ### 1. Dependency Injection (DI) Engine
 * **What:** Powered by `Microsoft.Extensions.DependencyInjection`.
@@ -80,7 +79,6 @@ The project strictly follows SOLID design principles, combining Inversion of Con
 ```mermaid
 
 graph TD
-
     subgraph Presentation & Framework Layer
         A[Program.cs - Bootstrapper]
         S[Serilog - Logging Pipeline]
@@ -187,8 +185,6 @@ graph TD
     C --> D[Calculate balance = Getbalance node]
     D --> E{Evaluate balance Coefficient}
 
-    
-
     E -->|balance > 1 AND key < node.Left.Key| F[Left-Left: Return RightRotate node]
     E -->|balance < -1 AND key > node.Right.Key| G[Right-Right: Return LeftRotate node]
     E -->|balance > 1 AND key > node.Left.Key| H[Left-Right: node.Left = LeftRotate -> Return RightRotate]
@@ -224,11 +220,7 @@ graph TD
     B -->|False| C[Force root.Color = Color.Black]
     C --> D[End Rotation & Balancing]
 
-    
-
     B -->|True| E{k.Parent == k.Parent.Parent.Right}
-
-    
 
     %% RIGHT SIDE UNCLE LOGIC
     E -->|True| F[Identify Uncle: u = k.Parent.Parent.Left]
@@ -236,8 +228,6 @@ graph TD
     G -->|True: Case A| H[Recolor: u & k.Parent to Black, Grandparent to Red]
     H --> H2[Move Pointer: k = k.Parent.Parent]
     H2 --> B
-
-    
 
     G -->|False: Case B| I{k == k.Parent.Left}
     I -->|True| J[Move Pointer: k = k.Parent -> Execute RightRotate k]
@@ -248,16 +238,12 @@ graph TD
     M -->|True| C
     M -->|False| B
 
-
-
     %% LEFT SIDE UNCLE LOGIC
     E -->|False| N[Identify Uncle: u = k.Parent.Parent.Right]
     N --> O{u.Color == Color.Red}
     O -->|True: Case A| P[Recolor: u & k.Parent to Black, Grandparent to Red]
     P --> P2[Move Pointer: k = k.Parent.Parent]
     P2 --> B
-
-    
 
     O -->|False: Case B| Q{k == k.Parent.Right}
     Q -->|True| R[Move Pointer: k = k.Parent -> Execute LeftRotate k]
@@ -329,7 +315,6 @@ graph TD
     N --> X
     V --> X
     W --> X
-
 ```
 
 </details>
@@ -461,12 +446,10 @@ GO
 
 ```
 
-### 2. Configure Connection String
-Open Services/DataGenerator.cs and configure your localized SQL Server connection string properties:
-```C#
-Open Services/DataGenerator.cs and configure your localized SQL Server connection string properties:
-```
-### 3. Run Benchmark Compilation
+### 3. Configure Connection String
+Open Services/DataGenerator.cs and configure your localized SQL Server connection string properties.
+
+### 4. Run Benchmark Compilation
 Execute the following native commands in your terminal or compile directly via Visual Studio:
 
 ```Bash
@@ -480,6 +463,7 @@ dotnet run --configuration Release
 <br>[x] v1.0.0 - AVL & Red-Black Tree benchmarking with advanced memory profiling.
 <br>[X] v1.5.0 - .NET Dependency Injection
 <br>[x] v2.0.0 - Abstract Template Engine refactoring, Fallback architecture, Serilog structure, Multi-way structures (B+ Tree), and spatial indexing (Quadtree).
+<br>[X] Complete the project
 
 ---
 
