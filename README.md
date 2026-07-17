@@ -1,3 +1,5 @@
+# TreeBench v2.0 - Advanced Data Structures Performance Lab
+
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![.NET Core](https://img.shields.io/badge/.NET%20Core-6.0%2B-purple.svg)
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-2022-red.svg)
@@ -5,19 +7,17 @@
 
 ---
 
-TreeBench is an advanced, enterprise-grade benchmarking laboratory designed to analyze, profile, and contrast self-balancing binary search trees (**AVL Tree, Red-Black Tree, and Splay Tree**). The architecture bypasses standard in-memory arrays by streaming **100,000 live production-grade records from a Microsoft SQL Server** database directly into volatile C# memory using low-level ADO.NET pipelines, simulating real-world big-data ingestion anomalies.
+TreeBench is an advanced, enterprise-grade benchmarking laboratory designed to analyze, profile, and contrast self-balancing binary search trees, multi-way indexes, and spatial data structures (**AVL Tree, Red-Black Tree, Splay Tree, B+ Tree, and Quadtree**). 
+
+The architecture streams **100,000 live records from a Microsoft SQL Server** directly into volatile C# memory via low-level Dapper pipelines. If the database engine is offline, a robust **In-Memory Fallback Mechanism** seamlessly initializes a mock production dataset to ensure zero telemetry distortion during execution.
 
 ---
+
 ## 📂 Project Directory Structure
 
-
-
-Below is the enterprise layout of the solution, exhibiting a clean Separation of Concerns (SoC):
-
-
+Below is the enterprise layout of the solution, exhibiting a clean Separation of Concerns (SoC) and Abstract Template patterns:
 
 ```text
-
 📂 TreeBench/
 │
 ├── 📂 TreeBench.DB/
@@ -29,75 +29,89 @@ Below is the enterprise layout of the solution, exhibiting a clean Separation of
     │   └── IBalancedTree.cs         # Domain abstraction contract (The Blueprint)
     │
     ├── 📂 Models/
+    │   ├── BaseBalancedTree.cs      # Abstract Template Class for structural standardization
     │   ├── AvlTree.cs               # AVL Tree implementation (Height-Balanced)
     │   ├── RedBlackTree.cs          # Red-Black Tree implementation (Color-Balanced)
-    │   └── SplayTree.cs             # Splay Tree implementation (Locality Optimized)
+    │   ├── SplayTree.cs             # Splay Tree implementation (Locality Optimized)
+    │   ├── BPlusTree.cs             # B+ Tree implementation (Multi-way Database Index)
+    │   └── QuadTree.cs              # Quadtree implementation (Spatial 2D Coordinate Index)
     │
     ├── 📂 Services/
-    │   ├── BenchmarkService.cs      # Telemetry & Performance Lab Profiler Engine
-    │   └── DataGenerator.cs         # ADO.NET SQL Server Data Ingestion Streamer
+    │   ├── BenchmarkService.cs      # Telemetry Profiler Engine with Deletion Stress Testing
+    │   └── DataGenerator.cs         # Micro-ORM Dapper Data Ingestion Streamer
     │
-    ├── TreeBench.BS.csproj          # .NET Project Configuration File
-    └── Program.cs                   # Application Orchestration & Console UI Entry Point
-
+    ├── TreeBench.BS.csproj          # .NET Project Configuration File with NuGet Manifests
+    └── Program.cs                   # IoC Container Registry, App Bootstrapper & Serilog Configuration
 ```
 
 ## 🏗️ Architectural Principles Applied
 
-The project adheres strictly to **SOLID design principles**, separating concerns into isolated logical layers to guarantee loose coupling, maintainability, and architectural encapsulation.
+The project strictly follows SOLID design principles, combining Inversion of Control (IoC) and Template Method Patterns to isolate runtime pipelines.
 
 ```mermaid
 
 graph TD
 
-    subgraph Presentation Layer
-        A[Program.cs - Entry Point]
+    subgraph Presentation & Framework Layer
+        A[Program.cs - Bootstrapper]
+        S[Serilog - Logging Pipeline]
+        IoC[Microsoft DI Container]
     end
     
     subgraph Application Service Layer
         B[BenchmarkService.cs - Profiler]
-        C[DataGenerator.cs - SQL Engine]
+        C[DataGenerator.cs - Dapper ORM]
     end
-
+    
     subgraph Domain Abstraction Layer
         D[IBalancedTree.cs - Interface]
+        Base[BaseBalancedTree.cs - Abstract Template]
     end
-
+    
     subgraph Infrastructure/Model Layer
         E[AvlTree.cs]
         F[RedBlackTree.cs]
         G[SplayTree.cs]
+        I[BPlusTree.cs]
+        J[QuadTree.cs]
     end
-
-    subgraph Data Source Layer
+    
+    subgraph Data Source & Resilience Layer
         H[(SQL Server - TreeBenchDB)]
+        FB[In-Memory Fallback Dataset]
     end
 
-    A -->|Orchestrates| B
-    A -->|Requests 100k Records| C
-    C -->|Streams via SqlDataReader| H
+    A -->|Configures| S
+    A -->|Builds| IoC
+    IoC -->|Injects| B
+    IoC -->|Injects| C
+    C -->|Try/Catch Connect| H
+    H -->|On Failure / Catch| FB
     B -->|Evaluates Performance| D
-    D -->|Contract Enforcement| E
-    D -->|Contract Enforcement| F
-    D -->|Contract Enforcement| G
+    D -->|Standardizes| Base
+    Base -->|Inheritance & Contract Enforcement| E
+    Base -->|Inheritance & Contract Enforcement| F
+    Base -->|Inheritance & Contract Enforcement| G
+    Base -->|Inheritance & Contract Enforcement| I
+    Base -->|Inheritance & Contract Enforcement| J
 
 ```
 
-* **Interface Segregation & Polymorphism (`IBalancedTree`):** Enforces a rigid structural blueprint for all tree implementations, allowing the benchmarking orchestrator to consume any structure interchangeably.
-* **Encapsulation (Nested Private Nodes):** The internal leaf topologies (`Node` structures) are totally isolated inside their respective host classes, hiding memory pointer assignments from the external layers.
-* **Loose Coupling (Streaming Logistics):** The trees are totally decoupled from the data provider. Swapping SQL Server for a cloud-native database or Excel requires updating only the `DataGenerator.cs` layer.
+* **Interface Segregation & Template Abstraction (BaseBalancedTree):** Enforces a rigid template method for search and deletion hooks, ensuring global edge-case checks (e.g., empty tree detection) are executed uniformly across all topologies before invoking concrete algorithmic engines (SearchInternal / DeleteInternal).
+* **Dependency Injection & Loose Coupling:** All operational dependencies are registered inside an asynchronous service collection and resolved via Microsoft.Extensions.DependencyInjection, avoiding hardcoded allocations.
+* **Graceful Degradation / Resilience:** Features an automatic runtime check during veritabanı ingestion. If a connection fault occurs, the pipeline catches the anomaly and populates a 100,000 record fallback dataset dynamically without delaying or prompting the main execution thread.
 
 ---
 
 ## 🔬 Monitored Metrics & Low-Level Profiling
 
-The lab captures hardware-level telemetry during intense structural bended execution:
+The lab captures real-time telemetry backed by structural validation parameters:
 
-* **Insert Duration:** Tracks the exact CPU clock cycles taken to construct and balance 100,000 values using high-precision native `System.Diagnostics.Stopwatch`.
-* **Search Telemetry:** Executes 10,000 multi-pointer lookups to record structural lookup navigation latency.
-* **Tree Topology Metrics:** Captures maximum depth (worst-case height) and minimum depth (shortest leaf trajectory) to measure the strict balance coefficient.
-* **Total Rotations Counter:** Tracks single and double bended balancing operations executed during node mutations.
-* **Memory Cost Profiling:** Leverages the native .NET Garbage Collector (`GC.GetTotalMemory`) to map the explicit byte allocation patterns in the Managed Heap.
+* **Insert Duration:** Tracks the exact CPU clock cycles taken to construct and structure 100,000 entries using System.Diagnostics.Stopwatch.
+* **Search Telemetry:** Runs 10,000 randomized lookups to compute index navigation speed.
+* **Deletion Stress Testing:** Executes 5,000 concrete sequential removals to evaluate balancing and restructuring penalties.
+* **Total Rotations & Structural Mutations:** Tracks balancing operations, color changes, page splits, and quadrant divisions.
+* **Structured Logging & Telemetry Reporting:** Managed by Serilog; records telemetry indicators simultaneously to the console with precise formatting and a persistent filesystem sink (logs/treebench_perf.txt).
 
 ---
 
@@ -223,12 +237,12 @@ graph TD
 
 ```mermaid
 
-  graph TD
+graph TD
     A[Start: Splay / Node root, int key] --> B{root == null OR root.Key == key}
     B -->|True| C[Return root]
     
     B -->|False| D{key < root.Key}
-
+    
     %% LEFT SUBTREE SPLAYING
     D -->|True: Left Subtree| E{root.Left == null}
     E -->|True| C
@@ -244,9 +258,7 @@ graph TD
     H -->|False| L
     L -->|True| M[Return root]
     L -->|False| N[Return RightRotate root]
-
     
-
     %% RIGHT SUBTREE SPLAYING
     D -->|False: Right Subtree| O{root.Right == null}
     O -->|True| C
@@ -261,8 +273,6 @@ graph TD
     T -->|True| V[Return root]
     T -->|False| W[Return LeftRotate root]
 
-
-
     M --> X[Increment rotationsCount via Rotate Engines]
     N --> X
     V --> X
@@ -272,9 +282,35 @@ graph TD
 
 </details>
 
+### 4. B+ Tree ('BPlusTree.cs')
+
+* An $m$-way balanced search tree designed explicitly for database structural indexing loops.
+* Restricts records strictly inside the external leaves while internal pages hold directory values, executing automated Split-Child mutations on saturation boundaries.
+
+<details>
+
+<summary><b>📐 3. SplayTree Tree (SplayTree.cs) - Balancing Logic</b></summary>
+
+```mermaid
+
+```
+
+</details>
+
+
+### 5. Quadtree ('QuadTree.cs')
+* A spatial partitioning tree structure optimizing two-dimensional grid lookups.
+* Maps numerical keys to structural Point('X, Y') planes, dividing geographical space recursively into four quadrants ('NorthWest, NorthEast, SouthWest, SouthEast') when node capacities are reached.
+
+<details>
+<summary><b>📐 3. SplayTree Tree (SplayTree.cs) - Balancing Logic</b></summary>
+
+```mermaid
+
+```
 ---
 
-
+</details>
 
 ## 🚀 Installation & Getting Started
 
