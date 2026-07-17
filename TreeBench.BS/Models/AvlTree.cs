@@ -3,7 +3,7 @@ using TreeBench.BS.Interfaces;
 
 namespace TreeBench.BS.Models
 {
-    public class AvlTree : IBalancedTree
+    public class AvlTree : BaseBalancedTree
     {
         private class Node
         {
@@ -14,33 +14,20 @@ namespace TreeBench.BS.Models
         }
 
         private Node root;
-        private int rotationsCount;
-        private int count; 
 
-        
-        public int Count => count;
+        public override void Insert(int key) => root = InsertRec(root, key);
 
-        public void Insert(int key) => root = InsertRec(root, key);
+        protected override bool SearchInternal(int key) => SearchRec(root, key);
 
-        public void Delete(int key) => root = DeleteRec(root, key);
+        protected override void DeleteInternal(int key) => root = DeleteRec(root, key);
 
-        public bool Search(int key) => SearchRec(root, key);
+        public override int GetMaxDepth() => GetHeight(root);
 
-        public int GetRotationsCount() => rotationsCount;
-
-        public int GetMaxDepth() => GetHeight(root); 
-
-        public int GetMinDepth() => GetMinDepthRec(root);
-
-        public void ResetMetrics() => rotationsCount = 0;
-
-        //depth Engine
+        public override int GetMinDepth() => GetMinDepthRec(root);
 
         private int GetHeight(Node node) => node == null ? 0 : node.Height;
 
         private int Getbalance(Node node) => node == null ? 0 : GetHeight(node.Left) - GetHeight(node.Right);
-
-        //*- Right Rotate Engine
 
         private Node RightRotate(Node y)
         {
@@ -57,7 +44,6 @@ namespace TreeBench.BS.Models
             return x;
         }
 
-        //*- Left Rotate Engine
         private Node LeftRotate(Node x)
         {
             Node y = x.Right;
@@ -73,7 +59,6 @@ namespace TreeBench.BS.Models
             return y;
         }
 
-        // Balance the tree after insertion
         private Node InsertRec(Node node, int key)
         {
             if (node == null)
@@ -84,19 +69,13 @@ namespace TreeBench.BS.Models
 
             if (key < node.Key) node.Left = InsertRec(node.Left, key);
             else if (key > node.Key) node.Right = InsertRec(node.Right, key);
-            else
-                return node;
+            else return node;
 
             node.Height = 1 + Math.Max(GetHeight(node.Left), GetHeight(node.Right));
             int balance = Getbalance(node);
 
-            //Left-Right Double Rotation and Left-Left Rotation and Right-Right Rotation and Right-Left Double Rotation
-
-            if (balance > 1 && key < node.Left.Key)
-                return RightRotate(node);
-
-            if (balance < -1 && key > node.Right.Key)
-                return LeftRotate(node);
+            if (balance > 1 && key < node.Left.Key) return RightRotate(node);
+            if (balance < -1 && key > node.Right.Key) return LeftRotate(node);
 
             if (balance > 1 && key > node.Left.Key)
             {
@@ -119,6 +98,72 @@ namespace TreeBench.BS.Models
             return key < node.Key ? SearchRec(node.Left, key) : SearchRec(node.Right, key);
         }
 
+        // --- BALANCED AVL DELETION ENGINE (NEW FEATURE v2.0) ---
+        private Node DeleteRec(Node root, int key)
+        {
+            if (root == null) return root;
+
+            if (key < root.Key)
+            {
+                root.Left = DeleteRec(root.Left, key);
+            }
+            else if (key > root.Key)
+            {
+                root.Right = DeleteRec(root.Right, key);
+            }
+            else
+            {
+                if ((root.Left == null) || (root.Right == null))
+                {
+                    Node temp = root.Left ?? root.Right;
+
+                    if (temp == null)
+                    {
+                        temp = root;
+                        root = null;
+                    }
+                    else
+                    {
+                        root = temp;
+                    }
+                    count--;
+                }
+                else
+                {
+                    Node temp = GetMinValueNode(root.Right);
+                    root.Key = temp.Key;
+                    root.Right = DeleteRec(root.Right, temp.Key);
+                }
+            }
+
+            if (root == null) return root;
+
+            root.Height = Math.Max(GetHeight(root.Left), GetHeight(root.Right)) + 1;
+            int balance = Getbalance(root);
+
+            if (balance > 1 && Getbalance(root.Left) >= 0) return RightRotate(root);
+            if (balance > 1 && Getbalance(root.Left) < 0)
+            {
+                root.Left = LeftRotate(root.Left);
+                return RightRotate(root);
+            }
+            if (balance < -1 && Getbalance(root.Right) <= 0) return LeftRotate(root);
+            if (balance < -1 && Getbalance(root.Right) > 0)
+            {
+                root.Right = RightRotate(root.Right);
+                return LeftRotate(root);
+            }
+
+            return root;
+        }
+
+        private Node GetMinValueNode(Node node)
+        {
+            Node current = node;
+            while (current.Left != null) current = current.Left;
+            return current;
+        }
+
         private int GetMinDepthRec(Node node)
         {
             if (node == null) return 0;
@@ -127,13 +172,6 @@ namespace TreeBench.BS.Models
             if (node.Right == null) return GetMinDepthRec(node.Left) + 1;
 
             return Math.Min(GetMinDepthRec(node.Left), GetMinDepthRec(node.Right)) + 1;
-        }
-
-        [Obsolete("Balanced deletion logic is deferred to v2.0 Enterprise Release. Currently bypassed to maintain benchmark stability.")]
-        private Node DeleteRec(Node node, int key)
-        {
-            // Bypassing the operation to maintain benchmark stability.
-            return node;
         }
     }
 }

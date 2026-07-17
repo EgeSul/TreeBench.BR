@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Serilog;
 using TreeBench.BS.Interfaces;
-using TreeBench.BS.Models;
 
 namespace TreeBench.BS.Services
 {
     public class BenchmarkService
     {
-        /// <summary>
-        /// The tree passed as a parameter is tested against the data from SQL and returns metrics.
-        /// </summary>
-        public void ExecuteTreeTest(string treeName, IBalancedTree tree, List<int> testData)
+        public void ExecuteTreeTest(string treeName, IBalancedTree tree, List<int> testData, int mode)
         {
             tree.ResetMetrics();
 
@@ -20,6 +17,9 @@ namespace TreeBench.BS.Services
             long memoryBefore = GC.GetTotalMemory(true);
 
             Stopwatch sw = new Stopwatch();
+            double insertTimeMs = 0;
+            double searchTimeMs = 0;
+            double deleteTimeMs = 0;
 
             sw.Start();
             foreach (int value in testData)
@@ -27,31 +27,51 @@ namespace TreeBench.BS.Services
                 tree.Insert(value);
             }
             sw.Stop();
-            double insertTimeMs = sw.Elapsed.TotalMilliseconds;
+            insertTimeMs = sw.Elapsed.TotalMilliseconds;
 
-            sw.Restart();
-            for (int i = 0; i < 10000; i++)
+            if (mode == 1)
             {
-                tree.Search(testData[i % testData.Count]);
+                sw.Restart();
+                for (int i = 0; i < 10000; i++)
+                {
+                    tree.Search(testData[i % testData.Count]);
+                }
+                sw.Stop();
+                searchTimeMs = sw.Elapsed.TotalMilliseconds;
             }
-            sw.Stop();
-            double searchTimeMs = sw.Elapsed.TotalMilliseconds;
+            else if (mode == 2) 
+            {
+                sw.Restart();
+                Random rand = new Random();
+                for (int i = 0; i < 5000; i++)
+                {
+                    int randomIndex = rand.Next(0, testData.Count);
+                    tree.Delete(testData[randomIndex]); 
+                }
+                sw.Stop();
+                deleteTimeMs = sw.Elapsed.TotalMilliseconds;
+            }
 
             long memoryAfter = GC.GetTotalMemory(true);
             double allocatedKb = (memoryAfter - memoryBefore) / 1024.0;
             if (allocatedKb < 0) allocatedKb = 0;
 
-            Console.WriteLine($"------------------------------------------------");
-            Console.WriteLine($"📊 [{treeName.ToUpper()}] PERFORMANCE REPORT");
-            Console.WriteLine($"------------------------------------------------");
-            Console.WriteLine($"🔹 Total Node Count          : {tree.Count:N0}");
-            Console.WriteLine($"🔹 Addition Time    (Insert) : {insertTimeMs:F4} ms");
-            Console.WriteLine($"🔹 Search Duration  (Search) : {searchTimeMs:F4} ms");
-            Console.WriteLine($"🔹 Maximum Depth    (Height) : {tree.GetMaxDepth()} kat");
-            Console.WriteLine($"🔹 Minimum Depth    (Height) : {tree.GetMinDepth()} kat");
-            Console.WriteLine($"🔹 Total Rotations           : {tree.GetRotationsCount():N0}");
-            Console.WriteLine($"🔹 RAM Cost (Approximate): {allocatedKb:F2} KB");
-            Console.WriteLine($"------------------------------------------------\n");
+            Log.Information("------------------------------------------------");
+            Log.Information("📊 [{TreeName}] PERFORMANCE REPORT (Mode: {Mode})", treeName.ToUpper(), mode);
+            Log.Information("------------------------------------------------");
+            Log.Information("🔹 Active Node Count         : {Count:N0}", tree.Count);
+            Log.Information("🔹 Addition Time   (Insert)  : {InsertTime:F4} ms", insertTimeMs);
+
+            if (mode == 1)
+                Log.Information("🔹 Search Duration (Search)  : {SearchTime:F4} ms", searchTimeMs);
+            if (mode == 2)
+                Log.Information("🔹 Deletion Time   (Delete)  : {DeleteTime:F4} ms", deleteTimeMs);
+
+            Log.Information("🔹 Maximum Depth   (Height)  : {MaxDepth} kat", tree.GetMaxDepth());
+            Log.Information("🔹 Minimum Depth   (Height)  : {MinDepth} kat", tree.GetMinDepth());
+            Log.Information("🔹 Total Rotations           : {Rotations:N0}", tree.GetRotationsCount());
+            Log.Information("🔹 RAM Cost (Approximate)    : {RamCost:F2} KB", allocatedKb);
+            Log.Information("------------------------------------------------\n");
         }
     }
 }

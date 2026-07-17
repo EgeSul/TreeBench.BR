@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Data;
-using TreeBench.BS.Interfaces;
 
 namespace TreeBench.BS.Models
 {
-    public class SplayTree : IBalancedTree
+    public class SplayTree : BaseBalancedTree
     {
         private class Node
         {
@@ -14,12 +13,9 @@ namespace TreeBench.BS.Models
         }
 
         private Node root;
-        private int count;
-        private int rotationsCount;
 
-        public int Count => count;
 
-        public void Insert(int key)
+        public override void Insert(int key)
         {
             if (root == null)
             {
@@ -50,43 +46,51 @@ namespace TreeBench.BS.Models
             count++;
         }
 
-        public bool Search(int key)
+        protected override bool SearchInternal(int key)
         {
-            if (root == null) return false;
-
             root = Splay(root, key);
-
             return root.Key == key;
         }
 
-        [Obsolete("Splay deletion is deferred to v2.0 Enterprise Release. Currently bypassed to maintain benchmark stability.")]
-        public void Delete(int key)
+        protected override void DeleteInternal(int key)
         {
-            // Bypassing to maintain benchmark integrity.
+            root = Splay(root, key);
+
+            if (root.Left == null)
+            {
+                root = root.Right;
+            }
+            else
+            {
+                Node rightSubtree = root.Right;
+                root = root.Left;
+                root = Splay(root, key);
+                root.Right = rightSubtree;
+            }
+
+            count--;
         }
 
-        public int GetMaxDepth() => GetMaxDepthRec(root);
+        public override int GetMaxDepth() => GetMaxDepthRec(root);
 
-        public int GetMinDepth() => GetMinDepthRec(root);
+        public override int GetMinDepth() => GetMinDepthRec(root);
 
-        public int GetRotationsCount() => rotationsCount;
-
-        public void ResetMetrics() => rotationsCount = 0;
 
         private Node RightRotate(Node x)
         {
             Node y = x.Left;
             x.Left = y.Right;
             y.Right = x;
-            rotationsCount++; 
+            rotationsCount++;
             return y;
         }
+
         private Node LeftRotate(Node x)
         {
             Node y = x.Right;
             x.Right = y.Left;
             y.Left = x;
-            rotationsCount++; 
+            rotationsCount++;
             return y;
         }
 
@@ -112,7 +116,7 @@ namespace TreeBench.BS.Models
 
                 return (root.Left == null) ? root : RightRotate(root);
             }
-            else 
+            else
             {
                 if (root.Right == null) return root;
 

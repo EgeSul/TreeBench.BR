@@ -46,3 +46,6 @@ C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.
 C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Dapper.dll
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Serilog.dll
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Serilog.Sinks.Console.dll
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Serilog.Sinks.File.dll
