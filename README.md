@@ -289,24 +289,70 @@ graph TD
 
 <details>
 
-<summary><b>📐 3. SplayTree Tree (SplayTree.cs) - Balancing Logic</b></summary>
+<summary><b>📐 4. B+ Tree (BPlusTree.cs) - Splitting & Ingestion Pipeline</b></summary>
 
 ```mermaid
 
+graph TD
+    A[Start: Insert / int key] --> B[Get Root Node: r = root]
+    B --> C{Is Root Full? r.Keys.Count == M - 1}
+    
+    C -->|Yes: Root Split| D[Create New Inner Root Node: s]
+    D --> E[Add old root as child of s]
+    E --> F[Execute SplitChild s, 0, r]
+    F --> G[Increment rotationsCount as Split Metric]
+    G --> H[Execute InsertNonFull s, key]
+    
+    C -->|No: Standard Path| I[Execute InsertNonFull r, key]
+    
+    H --> J{Is Target Node a Leaf?}
+    I --> J
+    
+    J -->|Yes| K[Perform Ordered In-Memory Insertion]
+    J -->|No| L[Traverse Down to Correct Child Pointer]
+    L --> M{Is Child Full?}
+    M -->|Yes| N[Execute SplitChild parent, i, child]
+    M -->|No| O[Recurse: InsertNonFull child, key]
+    N --> O
+    O --> P[End Ingestion Loop]
+    K --> P
 ```
 
 </details>
 
 
 ### 5. Quadtree ('QuadTree.cs')
-* A spatial partitioning tree structure optimizing two-dimensional grid lookups.
+* Maps single-dimensional integers into absolute 'Point(X, Y)' planes to mock geographical queries.
+* Executes atomic Subdivide splits to break down dense areas into 4 distinct child vectors.
 * Maps numerical keys to structural Point('X, Y') planes, dividing geographical space recursively into four quadrants ('NorthWest, NorthEast, SouthWest, SouthEast') when node capacities are reached.
 
 <details>
-<summary><b>📐 3. SplayTree Tree (SplayTree.cs) - Balancing Logic</b></summary>
+<summary><b>📐 5. Quadtree ('QuadTree.cs') - Balancing Logic</b></summary>
 
 ```mermaid
 
+graph TD
+    A[Start: Insert / int key] --> B[Map Key to Coordinates: X = key % 1000, Y = key / 1000]
+    B --> C[Create Point Interface Instance: p]
+    C --> D[Invoke InsertInternal root, p]
+    D --> E{Does Node Boundary Contain Point?}
+    
+    E -->|False| F[Return false - Anomaly Isolated]
+    E -->|True| G{Node.Points.Count < CAPACITY AND !IsDivided}
+    
+    G -->|True: Safe Ingestion| H[Push Point into Node.Points Collection]
+    G -->|False: Limit Exceeded| I{Is Node Already Subdivided?}
+    
+    I -->|No| J[Execute Subdivide node]
+    J --> K[Instantiate NorthWest, NorthEast, SouthWest, SouthEast Nodes]
+    K --> L[Clear Node Points & Redistribute to 4 Quadrants]
+    L --> M[Increment rotationsCount as Divide Metric]
+    M --> N[Forward Traversal to Children Nodes]
+    I -->|Yes| N
+    
+    N --> O[Recursively invoke InsertInternal on Sub-Quadrants]
+    O --> P[Return true -> Increment global count]
+    H --> P
 ```
 ---
 
@@ -381,7 +427,7 @@ dotnet run --configuration Release
 
 <br>[x] v1.0.0 - AVL & Red-Black Tree benchmarking with advanced memory profiling.
 <br>[X] v1.5.0 - .NET Dependency Injection
-<br>[ ] v2.0.0 - Transitioning to multi-way structures (B+ Tree) and spatial indexing (Quadtree) for enterprise data simulation.
+<br>[x] v2.0.0 - Abstract Template Engine refactoring, Fallback architecture, Serilog structure, Multi-way structures (B+ Tree), and spatial indexing (Quadtree).
 
 ---
 
