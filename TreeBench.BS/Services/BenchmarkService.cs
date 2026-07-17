@@ -42,7 +42,7 @@ namespace TreeBench.BS.Services
             if (allocatedKb < 0) allocatedKb = 0;
 
             Console.WriteLine($"------------------------------------------------");
-            Console.WriteLine($"📊 [{treeName.ToUpper()}] PERFORMANS RAPORU");
+            Console.WriteLine($"📊 [{treeName.ToUpper()}] PERFORMANCE REPORT");
             Console.WriteLine($"------------------------------------------------");
             Console.WriteLine($"🔹 Total Node Count          : {tree.Count:N0}");
             Console.WriteLine($"🔹 Addition Time    (Insert) : {insertTimeMs:F4} ms");

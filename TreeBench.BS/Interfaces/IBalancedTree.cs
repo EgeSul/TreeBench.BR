@@ -15,5 +15,6 @@ namespace TreeBench.BS.Interfaces
         int GetRotationsCount();
 
         void ResetMetrics();
+
     }
 }

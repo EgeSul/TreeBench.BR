@@ -1,4 +1,3 @@
--- 1. Veri tabanını sıfırdan oluştur
 --USE master;
 --GO
 
@@ -18,13 +17,12 @@
 ---- 2. Test verilerini tutacağımız tablo
 --CREATE TABLE TestNumbers (
 --    ID INT IDENTITY(1,1) PRIMARY KEY,
---    Value INT NOT NULL CONSTRAINT UC_TestNumbers_Value UNIQUE, -- Ağaçların kafası karışmasın diye benzersiz (Unique)
---    DataType VARCHAR(20) NOT NULL -- 'Random' veya 'Sorted' ayrımı yapmak için
+--    Value INT NOT NULL CONSTRAINT UC_TestNumbers_Value UNIQUE, 
+--    DataType VARCHAR(20) NOT NULL -- 'Random' OR 'Sorted' 
 --);
 --GO
 
----- 3. PERFORMANS İÇİN LOOP MOTORU (100.000 Rastgele Veri)
---SET NOCOUNT ON; -- Konsolu gereksiz loglarla yorup işlemi yavaşlatmasın
+--SET NOCOUNT ON; 
 
 --PRINT '[>] 100.000 Rastgele veri üretimi başlatıldı... Biraz sürebilir.';
 
@@ -32,11 +30,9 @@
 --DECLARE @RandomValue INT;
 
 --WHILE @Counter <= 100000
---BEGIN
---    -- 1 ile 1.000.000 arasında rastgele bir tam sayı üret
+--BEGİN
 --    SET @RandomValue = FLOOR(RAND() * 1000000) + 1;
 
---    -- Eğer bu sayı daha önce eklenmediyse tabloya ekle
 --    IF NOT EXISTS (SELECT 1 FROM TestNumbers WHERE Value = @RandomValue)
 --    BEGIN
 --        INSERT INTO TestNumbers (Value, DataType) 
@@ -49,7 +45,6 @@
 --PRINT '[+] 100.000 Rastgele veri başarıyla yüklendi!';
 --GO
 
----- 4. Kontrol Sorgusu (Veriler geldi mi diye bakmak için)
 --SELECT DataType, COUNT(*) AS ToplamEleman 
 --FROM TestNumbers 
 --GROUP BY DataType;
