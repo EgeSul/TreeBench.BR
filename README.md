@@ -20,6 +20,9 @@ Below is the enterprise layout of the solution, exhibiting a clean Separation of
 ```text
 📂 TreeBench/
 │
+│
+├── 📂 README.md
+│
 ├── 📂 TreeBench.DB/
 │   └── 📂 T-SQL/
 │       └── TreeBenchDB.sql          # SQL Script for database initialization
