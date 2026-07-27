@@ -1,1 +1,2 @@
 C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API\wwwroot\index.html
+wwwroot\index.html

@@ -175,3 +175,21 @@
 2026-07-27 15:51:51.768 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 18739.6678ms
 2026-07-27 15:51:51.770 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
 2026-07-27 15:51:51.774 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 200 null application/json; charset=utf-8 18922.2031ms
+2026-07-27 16:17:46.913 +03:00 [INF] ==================================================
+2026-07-27 16:17:46.949 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-07-27 16:17:46.950 +03:00 [INF] ==================================================
+2026-07-27 16:17:47.323 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-07-27 16:17:47.508 +03:00 [INF] Now listening on: https://localhost:7055
+2026-07-27 16:17:47.512 +03:00 [INF] Now listening on: http://localhost:5274
+2026-07-27 16:17:47.544 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-27 16:17:47.545 +03:00 [INF] Hosting environment: Development
+2026-07-27 16:17:47.546 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API
+2026-07-27 16:18:01.923 +03:00 [INF] ==================================================
+2026-07-27 16:18:01.958 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-07-27 16:18:01.958 +03:00 [INF] ==================================================
+2026-07-27 16:18:02.204 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-07-27 16:18:02.376 +03:00 [INF] Now listening on: https://localhost:7055
+2026-07-27 16:18:02.383 +03:00 [INF] Now listening on: http://localhost:5274
+2026-07-27 16:18:02.439 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-27 16:18:02.441 +03:00 [INF] Hosting environment: Development
+2026-07-27 16:18:02.442 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API
