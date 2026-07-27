@@ -6,14 +6,29 @@ using TreeBench.BS.Interfaces;
 
 namespace TreeBench.BS.Services
 {
+    // API ile BS katmanının ortak kullanacağı DTO modeli
+    public class BenchmarkResultModel
+    {
+        public string TreeName { get; set; } = string.Empty;
+        public int Mode { get; set; }
+        public int NodeCount { get; set; }
+        public double InsertTimeMs { get; set; }
+        public double SearchTimeMs { get; set; }
+        public double DeleteTimeMs { get; set; }
+        public int MaxDepth { get; set; }
+        public int MinDepth { get; set; }
+        public int TotalRotations { get; set; }
+        public double RamCostKb { get; set; }
+    }
+
     public class BenchmarkService
     {
-        public void ExecuteTreeTest(string treeName, IBalancedTree tree, List<int> testData, int mode)
+        public BenchmarkResultModel ExecuteSingleTreeTest(string treeName, IBalancedTree tree, List<int> testData, int mode)
         {
             if (testData == null || testData.Count == 0)
             {
-                Log.Warning("⚠️ [{TreeName}] The benchmark was skipped because the test data was empty.!", treeName);
-                return;
+                Log.Warning("⚠️ [{TreeName}] Benchmark skipped: test data empty.", treeName);
+                return null;
             }
 
             tree.ResetMetrics();
@@ -22,19 +37,15 @@ namespace TreeBench.BS.Services
             GC.WaitForPendingFinalizers();
             long memoryBefore = GC.GetTotalMemory(true);
 
-            Stopwatch sw = new Stopwatch();
-            double insertTimeMs = 0;
-            double searchTimeMs = 0;
-            double deleteTimeMs = 0;
-
-            sw.Start(); 
+            Stopwatch sw = Stopwatch.StartNew();
             foreach (int value in testData)
             {
                 tree.Insert(value);
             }
             sw.Stop();
-            insertTimeMs = sw.Elapsed.TotalMilliseconds;
+            double insertTimeMs = sw.Elapsed.TotalMilliseconds;
 
+            double searchTimeMs = 0;
             if (mode == 1)
             {
                 sw.Restart();
@@ -45,39 +56,42 @@ namespace TreeBench.BS.Services
                 sw.Stop();
                 searchTimeMs = sw.Elapsed.TotalMilliseconds;
             }
-            else if (mode == 2) 
+
+            double deleteTimeMs = 0;
+            if (mode == 2)
             {
                 sw.Restart();
                 Random rand = new Random();
                 for (int i = 0; i < 5000; i++)
                 {
                     int randomIndex = rand.Next(0, testData.Count);
-                    tree.Delete(testData[randomIndex]); 
+                    tree.Delete(testData[randomIndex]);
                 }
                 sw.Stop();
                 deleteTimeMs = sw.Elapsed.TotalMilliseconds;
             }
 
             long memoryAfter = GC.GetTotalMemory(true);
-            double allocatedKb = (memoryAfter - memoryBefore) / 1024.0;
-            if (allocatedKb < 0) allocatedKb = 0;
+            double allocatedKb = Math.Max(0, (memoryAfter - memoryBefore) / 1024.0);
 
-            Log.Information("------------------------------------------------");
-            Log.Information("📊 [{TreeName}] PERFORMANCE REPORT (Mode: {Mode})", treeName.ToUpper(), mode);
-            Log.Information("------------------------------------------------");
-            Log.Information("🔹 Active Node Count         : {Count:N0}", tree.Count);
-            Log.Information("🔹 Addition Time   (Insert)  : {InsertTime:F4} ms", insertTimeMs);
+            // Hem loga basıyoruz
+            Log.Information("📊 [{TreeName}] Insert: {InsertTime:F2}ms, Search: {SearchTime:F2}ms, RAM: {Ram:F2}KB",
+                treeName, insertTimeMs, searchTimeMs, allocatedKb);
 
-            if (mode == 1)
-                Log.Information("🔹 Search Duration (Search)  : {SearchTime:F4} ms", searchTimeMs);
-            if (mode == 2)
-                Log.Information("🔹 Deletion Time   (Delete)  : {DeleteTime:F4} ms", deleteTimeMs);
-
-            Log.Information("🔹 Maximum Depth   (Height)  : {MaxDepth} kat", tree.GetMaxDepth());
-            Log.Information("🔹 Minimum Depth   (Height)  : {MinDepth} kat", tree.GetMinDepth());
-            Log.Information("🔹 Total Rotations           : {Rotations:N0}", tree.GetRotationsCount());
-            Log.Information("🔹 RAM Cost (Approximate)    : {RamCost:F2} KB", allocatedKb);
-            Log.Information("------------------------------------------------\n");
+            // Hem de API / Dashboard için veri modelimizi dönüyoruz
+            return new BenchmarkResultModel
+            {
+                TreeName = treeName,
+                Mode = mode,
+                NodeCount = tree.Count,
+                InsertTimeMs = Math.Round(insertTimeMs, 4),
+                SearchTimeMs = Math.Round(searchTimeMs, 4),
+                DeleteTimeMs = Math.Round(deleteTimeMs, 4),
+                MaxDepth = tree.GetMaxDepth(),
+                MinDepth = tree.GetMinDepth(),
+                TotalRotations = tree.GetRotationsCount(),
+                RamCostKb = Math.Round(allocatedKb, 2)
+            };
         }
     }
 }

@@ -1,6 +1,3 @@
-@TreeBench.API_HostAddress = http://localhost:5274
-
-GET {{TreeBench.API_HostAddress}}/weatherforecast/
+POST https://localhost:7055/api/Benchmark/run?mode=1
+Content-Type: application/json
 Accept: application/json
-
-###
