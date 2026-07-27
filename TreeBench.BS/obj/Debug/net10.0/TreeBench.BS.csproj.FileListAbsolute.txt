@@ -43,9 +43,14 @@ C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.
 C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\obj\Debug\net10.0\TreeBench.BS.pdb
 C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\obj\Debug\net10.0\TreeBench.BS.genruntimeconfig.cache
 C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\obj\Debug\net10.0\ref\TreeBench.BS.dll
-C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Dapper.dll
 C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Serilog.dll
 C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Serilog.Sinks.Console.dll
 C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Serilog.Sinks.File.dll
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Serilog.AspNetCore.dll
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Serilog.Extensions.Hosting.dll
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Serilog.Extensions.Logging.dll
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Serilog.Formatting.Compact.dll
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Serilog.Settings.Configuration.dll
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.BS\bin\Debug\net10.0\Serilog.Sinks.Debug.dll

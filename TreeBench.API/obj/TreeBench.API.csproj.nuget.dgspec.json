@@ -59,6 +59,10 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[10.0.10, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[10.0.0, )"
             }
           },
           "imports": [
@@ -557,6 +561,10 @@
             "Serilog": {
               "target": "Package",
               "version": "[4.4.0, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[10.0.0, )"
             },
             "Serilog.Sinks.Console": {
               "target": "Package",

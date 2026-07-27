@@ -1,0 +1,9 @@
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API\obj\Debug\net10.0\TreeBench.API.csproj.AssemblyReference.cache
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API\obj\Debug\net10.0\TreeBench.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API\obj\Debug\net10.0\TreeBench.API.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API\obj\Debug\net10.0\TreeBench.API.AssemblyInfo.cs
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API\obj\Debug\net10.0\TreeBench.API.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API\obj\Debug\net10.0\TreeBench.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API\obj\Debug\net10.0\TreeBench.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API\obj\Debug\net10.0\TreeBench.API.sourcelink.json

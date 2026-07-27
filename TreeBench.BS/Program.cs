@@ -33,6 +33,7 @@ namespace TreeBench.BS
             services.AddTransient<IBalancedTree, SplayTree>();
             services.AddTransient<IBalancedTree, BPlusTree>();
             services.AddTransient<IBalancedTree, QuadTree>();
+            
 
             var serviceProvider = services.BuildServiceProvider();
 
