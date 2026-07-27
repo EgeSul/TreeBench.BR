@@ -463,7 +463,8 @@ dotnet run --configuration Release
 <br>[x] v1.0.0 - AVL & Red-Black Tree benchmarking with advanced memory profiling.
 <br>[X] v1.5.0 - .NET Dependency Injection
 <br>[x] v2.0.0 - Abstract Template Engine refactoring, Fallback architecture, Serilog structure, Multi-way structures (B+ Tree), and spatial indexing (Quadtree).
-<br>[X] Complete the project
+<br>[ ] v2.5.0 - Web API integration, asynchronous execution, and defensive fallback pipeline
+<br>[ ] Complete the project
 
 ---
 
