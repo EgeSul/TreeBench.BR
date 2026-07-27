@@ -1,0 +1,177 @@
+2026-07-27 15:21:53.827 +03:00 [INF] ==================================================
+2026-07-27 15:21:53.865 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-07-27 15:21:53.866 +03:00 [INF] ==================================================
+2026-07-27 15:21:54.253 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-07-27 15:21:54.403 +03:00 [INF] Now listening on: https://localhost:7055
+2026-07-27 15:21:54.406 +03:00 [INF] Now listening on: http://localhost:5274
+2026-07-27 15:21:54.433 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-27 15:21:54.434 +03:00 [INF] Hosting environment: Development
+2026-07-27 15:21:54.434 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API
+2026-07-27 15:29:34.738 +03:00 [INF] ==================================================
+2026-07-27 15:29:34.776 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-07-27 15:29:34.777 +03:00 [INF] ==================================================
+2026-07-27 15:29:35.170 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-07-27 15:29:35.330 +03:00 [INF] Now listening on: https://localhost:7055
+2026-07-27 15:29:35.334 +03:00 [INF] Now listening on: http://localhost:5274
+2026-07-27 15:29:35.450 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-27 15:29:35.451 +03:00 [INF] Hosting environment: Development
+2026-07-27 15:29:35.451 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API
+2026-07-27 15:29:49.633 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/benchmark/run?mode=1 - null 0
+2026-07-27 15:29:49.711 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/benchmark/run?mode=1 - 404 0 null 95.8257ms
+2026-07-27 15:29:49.718 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/benchmark/run, Response status code: 404
+2026-07-27 15:30:03.407 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/benchmark/run?mode=1 - null 0
+2026-07-27 15:30:03.411 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/benchmark/run?mode=1 - 404 0 null 4.2707ms
+2026-07-27 15:30:03.418 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/benchmark/run, Response status code: 404
+2026-07-27 15:30:04.777 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/benchmark/run?mode=1 - null 0
+2026-07-27 15:30:04.803 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/benchmark/run?mode=1 - 404 0 null 26.037ms
+2026-07-27 15:30:04.810 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/benchmark/run, Response status code: 404
+2026-07-27 15:30:40.436 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:30:40.442 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 6.2284ms
+2026-07-27 15:30:40.446 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:31:00.513 +03:00 [INF] ==================================================
+2026-07-27 15:31:00.546 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-07-27 15:31:00.546 +03:00 [INF] ==================================================
+2026-07-27 15:31:00.759 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-07-27 15:31:00.911 +03:00 [INF] Now listening on: https://localhost:7055
+2026-07-27 15:31:00.915 +03:00 [INF] Now listening on: http://localhost:5274
+2026-07-27 15:31:00.948 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-27 15:31:00.949 +03:00 [INF] Hosting environment: Development
+2026-07-27 15:31:00.950 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API
+2026-07-27 15:31:03.742 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:31:03.819 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 86.3943ms
+2026-07-27 15:31:03.832 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:31:06.195 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:31:06.204 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 9.8094ms
+2026-07-27 15:31:06.210 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:31:12.894 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:31:12.901 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 6.803ms
+2026-07-27 15:31:12.907 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:31:14.739 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:31:14.744 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 5.1009ms
+2026-07-27 15:31:14.747 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:31:15.411 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:31:15.415 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 4.238ms
+2026-07-27 15:31:15.419 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:31:15.923 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:31:15.927 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 3.4641ms
+2026-07-27 15:31:15.931 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:31:16.343 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:31:16.345 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 1.9236ms
+2026-07-27 15:31:16.347 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:31:16.839 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:31:16.845 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 6.2777ms
+2026-07-27 15:31:16.851 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:31:17.168 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:31:17.174 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 5.2929ms
+2026-07-27 15:31:17.176 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:31:17.638 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:31:17.643 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 4.8339ms
+2026-07-27 15:31:17.647 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:31:18.239 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:31:18.242 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 3.6223ms
+2026-07-27 15:31:18.247 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:32:03.608 +03:00 [INF] ==================================================
+2026-07-27 15:32:03.643 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-07-27 15:32:03.643 +03:00 [INF] ==================================================
+2026-07-27 15:32:03.869 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-07-27 15:32:04.010 +03:00 [INF] Now listening on: https://localhost:7055
+2026-07-27 15:32:04.014 +03:00 [INF] Now listening on: http://localhost:5274
+2026-07-27 15:32:04.048 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-27 15:32:04.049 +03:00 [INF] Hosting environment: Development
+2026-07-27 15:32:04.049 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API
+2026-07-27 15:32:06.281 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:32:06.377 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 106.476ms
+2026-07-27 15:32:06.389 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:32:13.596 +03:00 [INF] ==================================================
+2026-07-27 15:32:13.629 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-07-27 15:32:13.629 +03:00 [INF] ==================================================
+2026-07-27 15:32:13.826 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-07-27 15:32:13.949 +03:00 [INF] Now listening on: https://localhost:7055
+2026-07-27 15:32:13.953 +03:00 [INF] Now listening on: http://localhost:5274
+2026-07-27 15:32:13.986 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-27 15:32:13.987 +03:00 [INF] Hosting environment: Development
+2026-07-27 15:32:13.987 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API
+2026-07-27 15:32:14.205 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:32:14.233 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 32.6052ms
+2026-07-27 15:32:14.236 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:32:18.063 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:32:18.070 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 7.1743ms
+2026-07-27 15:32:18.075 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:42:34.700 +03:00 [INF] ==================================================
+2026-07-27 15:42:34.733 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-07-27 15:42:34.733 +03:00 [INF] ==================================================
+2026-07-27 15:42:34.978 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-07-27 15:42:35.121 +03:00 [INF] Now listening on: https://localhost:7055
+2026-07-27 15:42:35.124 +03:00 [INF] Now listening on: http://localhost:5274
+2026-07-27 15:42:35.151 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-27 15:42:35.152 +03:00 [INF] Hosting environment: Development
+2026-07-27 15:42:35.152 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API
+2026-07-27 15:42:49.648 +03:00 [INF] ==================================================
+2026-07-27 15:42:49.682 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-07-27 15:42:49.682 +03:00 [INF] ==================================================
+2026-07-27 15:42:49.933 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-07-27 15:42:50.062 +03:00 [INF] Now listening on: https://localhost:7055
+2026-07-27 15:42:50.065 +03:00 [INF] Now listening on: http://localhost:5274
+2026-07-27 15:42:50.099 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-27 15:42:50.100 +03:00 [INF] Hosting environment: Development
+2026-07-27 15:42:50.101 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API
+2026-07-27 15:42:50.417 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:42:50.455 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 47.763ms
+2026-07-27 15:42:50.459 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:42:54.258 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:42:54.264 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 7.6682ms
+2026-07-27 15:42:54.271 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:42:57.352 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:42:57.361 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 8.8987ms
+2026-07-27 15:42:57.375 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:47:10.164 +03:00 [INF] ==================================================
+2026-07-27 15:47:10.202 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-07-27 15:47:10.202 +03:00 [INF] ==================================================
+2026-07-27 15:47:10.451 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-07-27 15:47:10.571 +03:00 [INF] Now listening on: https://localhost:7055
+2026-07-27 15:47:10.574 +03:00 [INF] Now listening on: http://localhost:5274
+2026-07-27 15:47:10.599 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-27 15:47:10.600 +03:00 [INF] Hosting environment: Development
+2026-07-27 15:47:10.600 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API
+2026-07-27 15:47:25.925 +03:00 [INF] ==================================================
+2026-07-27 15:47:25.960 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-07-27 15:47:25.961 +03:00 [INF] ==================================================
+2026-07-27 15:47:26.167 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-07-27 15:47:26.299 +03:00 [INF] Now listening on: https://localhost:7055
+2026-07-27 15:47:26.302 +03:00 [INF] Now listening on: http://localhost:5274
+2026-07-27 15:47:26.332 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-27 15:47:26.333 +03:00 [INF] Hosting environment: Development
+2026-07-27 15:47:26.334 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API
+2026-07-27 15:47:28.340 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:47:28.381 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 404 0 null 44.1463ms
+2026-07-27 15:47:28.394 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7055/api/Benchmark/run, Response status code: 404
+2026-07-27 15:51:14.040 +03:00 [INF] ==================================================
+2026-07-27 15:51:14.076 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-07-27 15:51:14.077 +03:00 [INF] ==================================================
+2026-07-27 15:51:14.339 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-07-27 15:51:14.458 +03:00 [INF] Now listening on: https://localhost:7055
+2026-07-27 15:51:14.461 +03:00 [INF] Now listening on: http://localhost:5274
+2026-07-27 15:51:14.495 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-27 15:51:14.495 +03:00 [INF] Hosting environment: Development
+2026-07-27 15:51:14.496 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API
+2026-07-27 15:51:30.545 +03:00 [INF] ==================================================
+2026-07-27 15:51:30.577 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-07-27 15:51:30.577 +03:00 [INF] ==================================================
+2026-07-27 15:51:30.775 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-07-27 15:51:30.889 +03:00 [INF] Now listening on: https://localhost:7055
+2026-07-27 15:51:30.892 +03:00 [INF] Now listening on: http://localhost:5274
+2026-07-27 15:51:30.921 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-27 15:51:30.922 +03:00 [INF] Hosting environment: Development
+2026-07-27 15:51:30.923 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\C#\TreeBench\TreeBench.API
+2026-07-27 15:51:32.865 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-07-27 15:51:32.932 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-07-27 15:51:33.011 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-07-27 15:51:50.397 +03:00 [INF] 📊 [AvlTree] Insert: 112.77ms, Search: 4.19ms, RAM: 3703.23KB
+2026-07-27 15:51:50.487 +03:00 [INF] 📊 [RedBlackTree] Insert: 49.94ms, Search: 5.73ms, RAM: 4403.03KB
+2026-07-27 15:51:50.663 +03:00 [INF] 📊 [SplayTree] Insert: 124.28ms, Search: 14.89ms, RAM: 3703.46KB
+2026-07-27 15:51:51.353 +03:00 [INF] 📊 [BPlusTree] Insert: 515.47ms, Search: 43.81ms, RAM: 33294.95KB
+2026-07-27 15:51:51.702 +03:00 [INF] 📊 [QuadTree] Insert: 176.99ms, Search: 19.65ms, RAM: 11526.50KB
+2026-07-27 15:51:51.733 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TreeBench.BS.Services.BenchmarkResultModel, TreeBench.BS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-07-27 15:51:51.768 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 18739.6678ms
+2026-07-27 15:51:51.770 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-07-27 15:51:51.774 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 200 null application/json; charset=utf-8 18922.2031ms

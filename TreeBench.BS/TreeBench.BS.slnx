@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="../TreeBench.API/TreeBench.API.csproj" Id="7d3e5ab1-c10d-45a7-8c13-e3b145a49e3e" />
   <Project Path="TreeBench.BS.csproj" />
 </Solution>

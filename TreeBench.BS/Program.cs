@@ -1,10 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 using System;
 using System.Collections.Generic;
-using Serilog;
 using TreeBench.BS.Interfaces;
 using TreeBench.BS.Models;
 using TreeBench.BS.Services;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TreeBench.BS
 {
@@ -33,6 +34,7 @@ namespace TreeBench.BS
             services.AddTransient<IBalancedTree, SplayTree>();
             services.AddTransient<IBalancedTree, BPlusTree>();
             services.AddTransient<IBalancedTree, QuadTree>();
+            
 
             var serviceProvider = services.BuildServiceProvider();
 
@@ -90,7 +92,7 @@ namespace TreeBench.BS
 
             foreach (var tree in managedTrees)
             {
-                benchmarkService.ExecuteTreeTest(tree.GetType().Name, tree, sqlData, benchmarkMode);
+                benchmarkService.ExecuteSingleTreeTest(tree.GetType().Name, tree, sqlData, benchmarkMode);
             }
 
             Log.Information("==================================================");
