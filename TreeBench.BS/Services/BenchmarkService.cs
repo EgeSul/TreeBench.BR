@@ -10,6 +10,12 @@ namespace TreeBench.BS.Services
     {
         public void ExecuteTreeTest(string treeName, IBalancedTree tree, List<int> testData, int mode)
         {
+            if (testData == null || testData.Count == 0)
+            {
+                Log.Warning("⚠️ [{TreeName}] The benchmark was skipped because the test data was empty.!", treeName);
+                return;
+            }
+
             tree.ResetMetrics();
 
             GC.Collect();
@@ -21,7 +27,7 @@ namespace TreeBench.BS.Services
             double searchTimeMs = 0;
             double deleteTimeMs = 0;
 
-            sw.Start();
+            sw.Start(); 
             foreach (int value in testData)
             {
                 tree.Insert(value);
