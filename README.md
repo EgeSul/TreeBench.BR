@@ -212,11 +212,23 @@ Navigate to http://localhost:5173 in your browser. Click Run Benchmark to begin 
 ## 🗺️ Development Roadmap
 
 [x] v1.0.0 - AVL & Red-Black Tree benchmarking with advanced memory profiling.
+<<<<<<< HEAD
 [x] v1.5.0 - .NET Dependency Injection & Dapper micro-ORM integration.
 [x] v2.0.0 - Abstract Template Engine refactoring, Fallback architecture, Serilog structure, Multi-way structures (B+ Tree), and Spatial indexing (Quadtree).
 [x] v2.5.0 - ASP.NET Web API integration, Vue 3 SPA frontend with ApexCharts, CORS tunneling, and asynchronous execution.
 [ ] v3.0.0 - Docker containerization, CI/CD GitHub Actions pipeline, and SignalR real-time telemetry streaming.
 
+=======
+
+[x] v1.5.0 - .NET Dependency Injection & Dapper micro-ORM integration.
+
+[x] v2.0.0 - Abstract Template Engine refactoring, Fallback architecture, Serilog structure, Multi-way structures (B+ Tree), and Spatial indexing (Quadtree).
+
+[x] v2.5.0 - ASP.NET Web API integration, Vue 3 SPA frontend with ApexCharts, CORS tunneling, and asynchronous execution.
+
+[ ] v3.0.0 - Docker containerization, CI/CD GitHub Actions pipeline, and SignalR real-time telemetry streaming.
+
+>>>>>>> ff61cb218d7fd1e909f0ebb4bc1150b8a4fb4760
 ## 📄 License & Architecture
 
 This architecture is completely open-source and released under the MIT License. Designed and engineered for high-performance enterprise benchmarking analysis.
