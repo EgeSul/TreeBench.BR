@@ -1,11 +1,9 @@
-TreeBench v2.5 - Advanced Full-Stack Data Structures Performance Lab
+# TreeBench v2.5 - Advanced Full-Stack Data Structures Performance Lab
 
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![.NET Core](https://img.shields.io/badge/.NET%20Core-6.0%2B-purple.svg)
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-2022-red.svg)
 ![Architecture](https://img.shields.io/badge/Architecture-Enterprise%20Layered-orange.svg)
-![API.NET](https://img.shields.io/badge/Architecture-Enterprise%20Layered-orange.svg)
-![VUE.3](https://img.shields.io/badge/Architecture-Enterprise%20Layered-orange.svg)
 
 ---
 
@@ -17,7 +15,7 @@ The architecture streams 100,000 live records from a Microsoft SQL Server direct
 
 ---
 
-##📂 Enterprise Directory Structure
+## 📂 Enterprise Directory Structure
 
 Below is the updated layout of the solution, exhibiting a clean Separation of Concerns (SoC) across the full-stack environment:
 Plaintext
@@ -50,72 +48,69 @@ Plaintext
 
 ---
 
-##🛠️ Architectural Breakdown (System Modularity & Purpose)
+## 🛠️ Architectural Breakdown (System Modularity & Purpose)
 
 To maintain a production-grade ecosystem, TreeBench implements strict modularity from the database layer all the way to the browser:
 
-###1. Vue 3 SPA Presentation Layer (Frontend)
+### 1. Vue 3 SPA Presentation Layer (Frontend)
 
-    What: A reactive, responsive dashboard built with Vue 3, Vite, and ApexCharts.
+What: A reactive, responsive dashboard built with Vue 3, Vite, and ApexCharts.
+Why: To visualize complex telemetry data (Insert/Search/Delete times, Traversals, RAM usage) instantly.
+How It's Modular: It utilizes a strict Vite Proxy configuration to handle CORS seamlessly, dynamically fetching JSON payloads from the C# API without tight coupling. Includes built-in i18n (English/German) and dynamic theme switching.
 
-    Why: To visualize complex telemetry data (Insert/Search/Delete times, Traversals, RAM usage) instantly.
+### 2. ASP.NET Core Web API (Backend)
 
-    How It's Modular: It utilizes a strict Vite Proxy configuration to handle CORS seamlessly, dynamically fetching JSON payloads from the C# API without tight coupling. Includes built-in i18n (English/German) and dynamic theme switching.
+What: The RESTful engine serving benchmark requests on port 5173.
+Why: Replaces rigid console outputs with a scalable API capable of handling concurrent HTTP POST requests from various clients. Protected by strict, yet configurable AllowAll CORS policies.
 
-###2. ASP.NET Core Web API (Backend)
+### 3. Dependency Injection (DI) Engine
 
-    What: The RESTful engine serving benchmark requests on port 5274.
+What: Powered by Microsoft.Extensions.DependencyInjection.
 
-    Why: Replaces rigid console outputs with a scalable API capable of handling concurrent HTTP POST requests from various clients. Protected by strict, yet configurable AllowAll CORS policies.
+Why: Decouples execution from instantiations. Trees are injected as Transient bindings, while background workers run as Singletons. Adding a new data structure requires changing exactly one line of code in the container registry.
 
-###3. Dependency Injection (DI) Engine
+### 4. Micro-ORM Data Ingestion (Dapper)
 
-    What: Powered by Microsoft.Extensions.DependencyInjection.
+What: Stack Overflow's Dapper compilation pipelines.
+Why: Offers the blazing-fast execution speed of raw ADO.NET while completely automating object mapping mechanics, preventing the heavy tracking overhead of traditional ORMs.
 
-    Why: Decouples execution from instantiations. Trees are injected as Transient bindings, while background workers run as Singletons. Adding a new data structure requires changing exactly one line of code in the container registry.
+### 5. Graceful Degradation / In-Memory Fallback
 
-###4. Micro-ORM Data Ingestion (Dapper)
-
-    What: Stack Overflow's Dapper compilation pipelines.
-
-    Why: Offers the blazing-fast execution speed of raw ADO.NET while completely automating object mapping mechanics, preventing the heavy tracking overhead of traditional ORMs.
-
-###5. Graceful Degradation / In-Memory Fallback
-
-    What: An intelligent runtime safety perimeter. If SQL Server fails to respond, the lab automatically activates an Enterprise Fallback Strategy, synthesizing a 100,000 element mock dataset locally without interrupting the high-precision Stopwatch loops.
+What: An intelligent runtime safety perimeter. If SQL Server fails to respond, the lab automatically activates an Enterprise Fallback Strategy, synthesizing a 100,000 element mock dataset locally without interrupting the high-precision Stopwatch loops.
 
 ---
 
-##🏗️ Architectural Principles Applied
+## 🏗️ Architectural Principles Applied
 
 The project strictly follows SOLID design principles, combining Inversion of Control (IoC), Proxy Patterns, and Template Method Patterns.
 Kod snippet'i
 
-```mermaid
+
+``` mermaid
 
 graph TD
-    subgraph Client Layer (Vue 3 / Vite)
+    subgraph ClientLayer ["Client Layer (Vue 3 / Vite)"]
         UI[App.vue - Dashboard]
         Proxy[Vite Proxy - Port 5173]
     end
 
-    subgraph API Presentation Layer (.NET Core)
+    subgraph APILayer ["API Presentation Layer (.NET Core)"]
         API[BenchmarkController]
         Boot[Program.cs - IoC & CORS]
     end
     
-    subgraph Application Service Layer
+    subgraph AppService ["Application Service Layer"]
         B[BenchmarkService.cs - Profiler]
         C[DataGenerator.cs - Dapper ORM]
     end
     
-    subgraph Domain & Model Layer
+    subgraph DomainLayer ["Domain & Model Layer"]
         D[IBalancedTree.cs - Contract]
         Base[BaseBalancedTree - Template]
         Trees[AVL, RBT, Splay, B+, Quad]
     end
     
-    subgraph Data Source Layer
+    subgraph DataSource ["Data Source Layer"]
         H[(SQL Server - TreeBenchDB)]
         FB[In-Memory Fallback Dataset]
     end
@@ -131,39 +126,37 @@ graph TD
     D --> Base
     Base --> Trees
 
-    ```
+```
 
-    ---
+---
 
-##🔬 Monitored Metrics & Low-Level Profiling
+## 🔬 Monitored Metrics & Low-Level Profiling
 
 The lab captures real-time telemetry backed by structural validation parameters, immediately rendered on the Vue UI:
 
-* **    Time Metrics (ms): Tracks exact CPU clock cycles for Insert, Search, and Delete operations using System.Diagnostics.Stopwatch.
+* Time Metrics (ms): Tracks exact CPU clock cycles for Insert, Search, and Delete operations using System.Diagnostics.Stopwatch.
 
-* **    Total Traversals (Steps): Measures the algorithmic efficiency and node-hopping required to locate or insert keys.
+* Total Traversals (Steps): Measures the algorithmic efficiency and node-hopping required to locate or insert keys.
 
-* **    Tree Depth: Monitors the structural height limits (Max/Min Depth) to evaluate balancing efficiency.
+* Tree Depth: Monitors the structural height limits (Max/Min Depth) to evaluate balancing efficiency.
 
-* **    Total Rotations: Tracks structural mutations, balancing operations, and page splits.
+* Total Rotations: Tracks structural mutations, balancing operations, and page splits.
 
-* **    RAM Usage: Calculates the approximate memory footprint dynamically allocated by each tree architecture.
+* RAM Usage: Calculates the approximate memory footprint dynamically allocated by each tree architecture.
 
-##🚀 Installation & Getting Started
+## 🚀 Installation & Getting Started
+
 Prerequisites
 
-    .NET 8.0 SDK (or higher)
+.NET 8.0 SDK (or higher)
+Node.js & npm (For Vue 3 Frontend)
+Microsoft SQL Server (LocalDB or SQLEXPRESS)
 
-    Node.js & npm (For Vue 3 Frontend)
-
-    Microsoft SQL Server (LocalDB or SQLEXPRESS)
-
-###1. Database Provisioning
+### 1. Database Provisioning
 
 Run the following script inside SQL Server Management Studio (SSMS) to instantiate the database pipeline:
-SQL
 
-```mermaid
+```sql
 
 CREATE DATABASE TreeBenchDB;
 GO
@@ -188,20 +181,25 @@ GO
 ```
 
 (Ensure your connection string in DataGenerator.cs points to this instance).
-###2. Launching the Backend (.NET API)
+
+### 2. Launching the Backend (.NET API)
 
 Open a terminal in the root directory (or run via Visual Studio):
-Bash
+
+```Bash
 
 cd TreeBench.API
 dotnet run
 
+```
+
 The API will start listening on http://localhost:5173.
-###3. Launching the Frontend (Vue 3 SPA)
+
+### 3. Launching the Frontend (Vue 3 SPA)
 
 Open a separate terminal window:
-Bash
-```mermaid
+
+```Bash
 
 cd TreeBench.UI
 npm install
@@ -211,18 +209,14 @@ npm run dev
 
 Navigate to http://localhost:5173 in your browser. Click Run Benchmark to begin the automated profiling sequence.
 
-##🗺️ Development Roadmap
+## 🗺️ Development Roadmap
 
-    ###[x] v1.0.0 - AVL & Red-Black Tree benchmarking with advanced memory profiling.
+[x] v1.0.0 - AVL & Red-Black Tree benchmarking with advanced memory profiling.
+[x] v1.5.0 - .NET Dependency Injection & Dapper micro-ORM integration.
+[x] v2.0.0 - Abstract Template Engine refactoring, Fallback architecture, Serilog structure, Multi-way structures (B+ Tree), and Spatial indexing (Quadtree).
+[x] v2.5.0 - ASP.NET Web API integration, Vue 3 SPA frontend with ApexCharts, CORS tunneling, and asynchronous execution.
+[ ] v3.0.0 - Docker containerization, CI/CD GitHub Actions pipeline, and SignalR real-time telemetry streaming.
 
-    ###[x] v1.5.0 - .NET Dependency Injection & Dapper micro-ORM integration.
-
-    ###[x] v2.0.0 - Abstract Template Engine refactoring, Fallback architecture, Serilog structure, Multi-way structures (B+ Tree), and Spatial indexing (Quadtree).
-
-    ###[x] v2.5.0 - ASP.NET Web API integration, Vue 3 SPA frontend with ApexCharts, CORS tunneling, and asynchronous execution.
-
-    ###[ ] v3.0.0 - Docker containerization, CI/CD GitHub Actions pipeline, and SignalR real-time telemetry streaming.
-
-##📄 License & Architecture
+## 📄 License & Architecture
 
 This architecture is completely open-source and released under the MIT License. Designed and engineered for high-performance enterprise benchmarking analysis.

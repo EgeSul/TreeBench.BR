@@ -291,3 +291,115 @@ System.InvalidOperationException: Unable to find the required services. Please a
 2026-08-05 12:44:42.352 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2026-08-05 12:44:42.353 +03:00 [INF] Hosting environment: Development
 2026-08-05 12:44:42.354 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 13:44:49.254 +03:00 [INF] ==================================================
+2026-08-05 13:44:49.318 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 13:44:49.319 +03:00 [INF] ==================================================
+2026-08-05 13:44:49.725 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 13:44:49.952 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 13:44:49.992 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 13:44:49.993 +03:00 [INF] Hosting environment: Development
+2026-08-05 13:44:49.993 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 13:46:08.254 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - application/json 0
+2026-08-05 13:46:08.382 +03:00 [INF] CORS policy execution successful.
+2026-08-05 13:46:08.390 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 13:46:08.484 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-08-05 13:46:25.932 +03:00 [INF] 📊 [AvlTree] Insert: 202.45ms, Search: 6.32ms, Delete: 21.35ms
+2026-08-05 13:46:26.130 +03:00 [INF] 📊 [RedBlackTree] Insert: 101.71ms, Search: 4.57ms, Delete: 7.75ms
+2026-08-05 13:46:26.478 +03:00 [INF] 📊 [SplayTree] Insert: 234.97ms, Search: 19.95ms, Delete: 13.70ms
+2026-08-05 13:46:27.647 +03:00 [INF] 📊 [BPlusTree] Insert: 830.06ms, Search: 84.33ms, Delete: 55.36ms
+2026-08-05 13:46:28.207 +03:00 [INF] 📊 [QuadTree] Insert: 245.87ms, Search: 17.39ms, Delete: 13.90ms
+2026-08-05 13:46:28.232 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TreeBench.BS.Services.BenchmarkResultModel, TreeBench.BS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-05 13:46:28.294 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 19790.9457ms
+2026-08-05 13:46:28.298 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 13:46:28.308 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - 200 null application/json; charset=utf-8 20083.2917ms
+2026-08-05 13:49:37.381 +03:00 [INF] ==================================================
+2026-08-05 13:49:37.429 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 13:49:37.434 +03:00 [INF] ==================================================
+2026-08-05 13:49:37.884 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 13:49:38.089 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 13:49:38.137 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 13:49:38.139 +03:00 [INF] Hosting environment: Development
+2026-08-05 13:49:38.141 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 13:49:39.809 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - null 0
+2026-08-05 13:49:39.879 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 13:49:39.935 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-08-05 13:49:56.920 +03:00 [INF] 📊 [AvlTree] Insert: 112.61ms, Search: 3.55ms, Delete: 9.25ms
+2026-08-05 13:49:57.003 +03:00 [INF] 📊 [RedBlackTree] Insert: 42.96ms, Search: 2.26ms, Delete: 6.82ms
+2026-08-05 13:49:57.176 +03:00 [INF] 📊 [SplayTree] Insert: 117.70ms, Search: 11.38ms, Delete: 8.33ms
+2026-08-05 13:49:57.856 +03:00 [INF] 📊 [BPlusTree] Insert: 484.26ms, Search: 39.15ms, Delete: 26.23ms
+2026-08-05 13:49:58.255 +03:00 [INF] 📊 [QuadTree] Insert: 161.20ms, Search: 18.07ms, Delete: 12.40ms
+2026-08-05 13:49:58.287 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TreeBench.BS.Services.BenchmarkResultModel, TreeBench.BS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-05 13:49:58.325 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 18378.5748ms
+2026-08-05 13:49:58.329 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 13:49:58.339 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - 200 null application/json; charset=utf-8 18541.3823ms
+2026-08-05 13:50:41.381 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - application/json 0
+2026-08-05 13:50:41.395 +03:00 [INF] CORS policy execution successful.
+2026-08-05 13:50:41.399 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 13:50:41.402 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-08-05 13:50:58.290 +03:00 [INF] 📊 [AvlTree] Insert: 143.91ms, Search: 2.50ms, Delete: 7.12ms
+2026-08-05 13:50:58.434 +03:00 [INF] 📊 [RedBlackTree] Insert: 71.61ms, Search: 3.84ms, Delete: 4.47ms
+2026-08-05 13:50:58.658 +03:00 [INF] 📊 [SplayTree] Insert: 116.54ms, Search: 14.70ms, Delete: 8.32ms
+2026-08-05 13:50:59.563 +03:00 [INF] 📊 [BPlusTree] Insert: 603.52ms, Search: 51.79ms, Delete: 36.94ms
+2026-08-05 13:50:59.991 +03:00 [INF] 📊 [QuadTree] Insert: 149.41ms, Search: 14.58ms, Delete: 11.18ms
+2026-08-05 13:50:59.998 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TreeBench.BS.Services.BenchmarkResultModel, TreeBench.BS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-05 13:51:00.005 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 18600.5631ms
+2026-08-05 13:51:00.012 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 13:51:00.016 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - 200 null application/json; charset=utf-8 18636.3043ms
+2026-08-05 13:53:41.978 +03:00 [INF] ==================================================
+2026-08-05 13:53:42.221 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 13:53:42.324 +03:00 [INF] ==================================================
+2026-08-05 13:53:43.612 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 13:53:44.253 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 13:53:44.578 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - null 0
+2026-08-05 13:53:44.599 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 13:53:44.607 +03:00 [INF] Hosting environment: Development
+2026-08-05 13:53:44.609 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 13:53:44.803 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 13:53:44.895 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-08-05 13:54:02.220 +03:00 [INF] 📊 [AvlTree] Insert: 262.28ms, Search: 9.60ms, Delete: 28.79ms
+2026-08-05 13:54:02.449 +03:00 [INF] 📊 [RedBlackTree] Insert: 109.40ms, Search: 7.57ms, Delete: 9.61ms
+2026-08-05 13:54:02.823 +03:00 [INF] 📊 [SplayTree] Insert: 212.29ms, Search: 13.91ms, Delete: 15.14ms
+2026-08-05 13:54:04.605 +03:00 [INF] 📊 [BPlusTree] Insert: 1298.39ms, Search: 107.48ms, Delete: 59.97ms
+2026-08-05 13:54:05.510 +03:00 [INF] 📊 [QuadTree] Insert: 427.97ms, Search: 34.18ms, Delete: 27.05ms
+2026-08-05 13:54:05.619 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TreeBench.BS.Services.BenchmarkResultModel, TreeBench.BS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-05 13:54:05.730 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 20807.7748ms
+2026-08-05 13:54:05.743 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 13:54:05.768 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - 499 null application/json; charset=utf-8 21248.4314ms
+2026-08-05 13:55:00.126 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - application/json 0
+2026-08-05 13:55:00.139 +03:00 [INF] CORS policy execution successful.
+2026-08-05 13:55:00.143 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 13:55:00.146 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-08-05 13:55:17.091 +03:00 [INF] 📊 [AvlTree] Insert: 170.53ms, Search: 4.98ms, Delete: 9.53ms
+2026-08-05 13:55:17.222 +03:00 [INF] 📊 [RedBlackTree] Insert: 67.20ms, Search: 3.56ms, Delete: 4.36ms
+2026-08-05 13:55:17.447 +03:00 [INF] 📊 [SplayTree] Insert: 126.74ms, Search: 11.28ms, Delete: 8.74ms
+2026-08-05 13:55:18.318 +03:00 [INF] 📊 [BPlusTree] Insert: 587.17ms, Search: 60.34ms, Delete: 34.15ms
+2026-08-05 13:55:18.755 +03:00 [INF] 📊 [QuadTree] Insert: 156.10ms, Search: 14.21ms, Delete: 11.16ms
+2026-08-05 13:55:18.767 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TreeBench.BS.Services.BenchmarkResultModel, TreeBench.BS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-05 13:55:18.775 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 18625.366ms
+2026-08-05 13:55:18.780 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 13:55:18.783 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - 200 null application/json; charset=utf-8 18659.3041ms
+2026-08-05 13:55:24.614 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - null 0
+2026-08-05 13:55:24.641 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 13:55:24.643 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-08-05 13:55:24.890 +03:00 [INF] 📊 [AvlTree] Insert: 170.67ms, Search: 3.30ms, Delete: 8.51ms
+2026-08-05 13:55:25.084 +03:00 [INF] 📊 [RedBlackTree] Insert: 100.08ms, Search: 4.76ms, Delete: 7.12ms
+2026-08-05 13:55:25.333 +03:00 [INF] 📊 [SplayTree] Insert: 159.58ms, Search: 11.04ms, Delete: 7.67ms
+2026-08-05 13:55:26.313 +03:00 [INF] 📊 [BPlusTree] Insert: 714.41ms, Search: 81.97ms, Delete: 42.32ms
+2026-08-05 13:55:26.724 +03:00 [INF] 📊 [QuadTree] Insert: 159.79ms, Search: 14.91ms, Delete: 10.84ms
+2026-08-05 13:55:26.733 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TreeBench.BS.Services.BenchmarkResultModel, TreeBench.BS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-05 13:55:26.736 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 2089.173ms
+2026-08-05 13:55:26.738 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 13:55:26.740 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - 200 null application/json; charset=utf-8 2125.9109ms
+2026-08-05 13:55:48.051 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - application/json 0
+2026-08-05 13:55:48.056 +03:00 [INF] CORS policy execution successful.
+2026-08-05 13:55:48.057 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 13:55:48.060 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-08-05 13:56:04.937 +03:00 [INF] 📊 [AvlTree] Insert: 171.26ms, Search: 4.68ms, Delete: 8.20ms
+2026-08-05 13:56:05.086 +03:00 [INF] 📊 [RedBlackTree] Insert: 72.37ms, Search: 4.06ms, Delete: 5.34ms
+2026-08-05 13:56:05.354 +03:00 [INF] 📊 [SplayTree] Insert: 149.04ms, Search: 20.45ms, Delete: 9.13ms
+2026-08-05 13:56:06.252 +03:00 [INF] 📊 [BPlusTree] Insert: 631.72ms, Search: 51.73ms, Delete: 53.53ms
+2026-08-05 13:56:06.674 +03:00 [INF] 📊 [QuadTree] Insert: 169.53ms, Search: 19.72ms, Delete: 18.62ms
+2026-08-05 13:56:06.684 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TreeBench.BS.Services.BenchmarkResultModel, TreeBench.BS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-05 13:56:06.686 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 18622.6662ms
+2026-08-05 13:56:06.689 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 13:56:06.691 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - 200 null application/json; charset=utf-8 18640.3935ms
