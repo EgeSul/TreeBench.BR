@@ -6,32 +6,21 @@ namespace TreeBench.BS.Models
     public class BPlusTree : BaseBalancedTree
     {
         private const int M = 3;
-
         private class BPlusNode
         {
             public bool IsLeaf;
             public List<int> Keys = new List<int>();
             public List<BPlusNode> Children = new List<BPlusNode>();
             public BPlusNode Next;
-
-            public BPlusNode(bool isLeaf)
-            {
-                IsLeaf = isLeaf;
-            }
+            public BPlusNode(bool isLeaf) { IsLeaf = isLeaf; }
         }
 
         private BPlusNode root;
+        public BPlusTree() { root = new BPlusNode(true); }
 
-        public BPlusTree()
-        {
-            root = new BPlusNode(true); 
-        }
-
-        // --- INSERT Engine ---
         public override void Insert(int key)
         {
             BPlusNode r = root;
-
             if (r.Keys.Count == M - 1)
             {
                 BPlusNode s = new BPlusNode(false);
@@ -40,17 +29,14 @@ namespace TreeBench.BS.Models
                 SplitChild(s, 0, r);
                 InsertNonFull(s, key);
             }
-            else
-            {
-                InsertNonFull(r, key);
-            }
+            else InsertNonFull(r, key);
             count++;
         }
 
         private void InsertNonFull(BPlusNode node, int key)
         {
+            stepCount++; // YENİ: Adım sayacı
             int i = node.Keys.Count - 1;
-
             if (node.IsLeaf)
             {
                 while (i >= 0 && node.Keys[i] > key) i--;
@@ -61,7 +47,6 @@ namespace TreeBench.BS.Models
                 while (i >= 0 && node.Keys[i] > key) i--;
                 i++;
                 BPlusNode child = node.Children[i];
-
                 if (child.Keys.Count == M - 1)
                 {
                     SplitChild(node, i, child);
@@ -75,10 +60,8 @@ namespace TreeBench.BS.Models
         {
             BPlusNode z = new BPlusNode(child.IsLeaf);
             int mid = (M - 1) / 2;
-
             parent.Keys.Insert(i, child.Keys[mid]);
             parent.Children.Insert(i + 1, z);
-
             z.Keys.AddRange(child.Keys.GetRange(mid + (child.IsLeaf ? 0 : 1), child.Keys.Count - mid - (child.IsLeaf ? 0 : 1)));
             child.Keys.RemoveRange(mid, child.Keys.Count - mid);
 
@@ -87,34 +70,30 @@ namespace TreeBench.BS.Models
                 z.Children.AddRange(child.Children.GetRange(mid + 1, child.Children.Count - mid - 1));
                 child.Children.RemoveRange(mid + 1, child.Children.Count - mid - 1);
             }
-            else
-            {
-                z.Next = child.Next;
-                child.Next = z;
-            }
+            else { z.Next = child.Next; child.Next = z; }
             rotationsCount++;
         }
 
         protected override bool SearchInternal(int key)
         {
             BPlusNode current = root;
-
             while (!current.IsLeaf)
             {
+                stepCount++; // YENİ: Adım sayacı
                 int i = 0;
                 while (i < current.Keys.Count && key >= current.Keys[i]) i++;
                 current = current.Children[i];
             }
-
+            stepCount++;
             return current.Keys.Contains(key);
         }
 
-        // --- DELETE Engine ---
         protected override void DeleteInternal(int key)
         {
             BPlusNode current = root;
             while (!current.IsLeaf)
             {
+                stepCount++; // YENİ: Adım sayacı
                 int i = 0;
                 while (i < current.Keys.Count && key >= current.Keys[i]) i++;
                 current = current.Children[i];
@@ -126,19 +105,12 @@ namespace TreeBench.BS.Models
             }
         }
 
-        // --- TOPOLOGY Metrics ---
         public override int GetMaxDepth()
         {
-            int depth = 0;
-            BPlusNode current = root;
-            while (current != null)
-            {
-                depth++;
-                current = current.IsLeaf ? null : current.Children[0];
-            }
+            int depth = 0; BPlusNode current = root;
+            while (current != null) { depth++; current = current.IsLeaf ? null : current.Children[0]; }
             return depth;
         }
-
         public override int GetMinDepth() => GetMaxDepth();
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dGrOtNhK94c=",
+  "dgSpecHash": "39r29YuS06E=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Documents\\Dersler\\Github.Projeler\\C#\\TreeBench\\TreeBench.API\\TreeBench.API.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Documents\\Dersler\\Github.Projeler\\CSharp\\TreeBench\\TreeBench.API\\TreeBench.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\dapper\\2.1.79\\dapper.2.1.79.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.10\\microsoft.aspnetcore.openapi.10.0.10.nupkg.sha512",
@@ -28,9 +28,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "'Microsoft.OpenApi' 2.0.0 paketinde önem derecesi yüksek olan bilinen bir https://github.com/advisories/GHSA-v5pm-xwqc-g5wc güvenlik açığı var",
-      "projectPath": "C:\\Users\\Administrator\\Documents\\Dersler\\Github.Projeler\\C#\\TreeBench\\TreeBench.API\\TreeBench.API.csproj",
+      "projectPath": "C:\\Users\\Administrator\\Documents\\Dersler\\Github.Projeler\\CSharp\\TreeBench\\TreeBench.API\\TreeBench.API.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\Administrator\\Documents\\Dersler\\Github.Projeler\\C#\\TreeBench\\TreeBench.API\\TreeBench.API.csproj",
+      "filePath": "C:\\Users\\Administrator\\Documents\\Dersler\\Github.Projeler\\CSharp\\TreeBench\\TreeBench.API\\TreeBench.API.csproj",
       "libraryId": "Microsoft.OpenApi",
       "targetGraphs": [
         "net10.0"

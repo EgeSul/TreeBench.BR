@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OfM9NB1I/dA=",
+  "dgSpecHash": "rl+UCvyAAwM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Documents\\Dersler\\Github.Projeler\\C#\\TreeBench\\TreeBench.BS\\TreeBench.BS.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Documents\\Dersler\\Github.Projeler\\CSharp\\TreeBench\\TreeBench.BS\\TreeBench.BS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\dapper\\2.1.79\\dapper.2.1.79.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.configuration\\10.0.0\\microsoft.extensions.configuration.10.0.0.nupkg.sha512",

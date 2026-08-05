@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Serilog;
 using TreeBench.BS.Interfaces;
+using TreeBench.BS.Models;
 
 namespace TreeBench.BS.Services
 {
-    // API ile BS katmanının ortak kullanacağı DTO modeli
+    // YENİ: TotalSteps (Adım Sayısı) eklendi!
     public class BenchmarkResultModel
     {
         public string TreeName { get; set; } = string.Empty;
@@ -18,6 +19,7 @@ namespace TreeBench.BS.Services
         public int MaxDepth { get; set; }
         public int MinDepth { get; set; }
         public int TotalRotations { get; set; }
+        public long TotalSteps { get; set; } // YENİ: Atılan toplam adım sayısı
         public double RamCostKb { get; set; }
     }
 
@@ -37,6 +39,7 @@ namespace TreeBench.BS.Services
             GC.WaitForPendingFinalizers();
             long memoryBefore = GC.GetTotalMemory(true);
 
+            // 1. INSERT TESTİ
             Stopwatch sw = Stopwatch.StartNew();
             foreach (int value in testData)
             {
@@ -45,40 +48,36 @@ namespace TreeBench.BS.Services
             sw.Stop();
             double insertTimeMs = sw.Elapsed.TotalMilliseconds;
 
+            // 2. SEARCH TESTİ (if kilidi kaldırıldı, her zaman çalışacak)
             double searchTimeMs = 0;
-            if (mode == 1)
+            sw.Restart();
+            for (int i = 0; i < 10000; i++)
             {
-                sw.Restart();
-                for (int i = 0; i < 10000; i++)
-                {
-                    tree.Search(testData[i % testData.Count]);
-                }
-                sw.Stop();
-                searchTimeMs = sw.Elapsed.TotalMilliseconds;
+                tree.Search(testData[i % testData.Count]);
             }
+            sw.Stop();
+            searchTimeMs = sw.Elapsed.TotalMilliseconds;
 
+            // 3. DELETE TESTİ (if kilidi kaldırıldı, her zaman çalışacak)
             double deleteTimeMs = 0;
-            if (mode == 2)
+            sw.Restart();
+            Random rand = new Random();
+            for (int i = 0; i < 5000; i++)
             {
-                sw.Restart();
-                Random rand = new Random();
-                for (int i = 0; i < 5000; i++)
-                {
-                    int randomIndex = rand.Next(0, testData.Count);
-                    tree.Delete(testData[randomIndex]);
-                }
-                sw.Stop();
-                deleteTimeMs = sw.Elapsed.TotalMilliseconds;
+                int randomIndex = rand.Next(0, testData.Count);
+                tree.Delete(testData[randomIndex]);
             }
+            sw.Stop();
+            deleteTimeMs = sw.Elapsed.TotalMilliseconds;
 
             long memoryAfter = GC.GetTotalMemory(true);
             double allocatedKb = Math.Max(0, (memoryAfter - memoryBefore) / 1024.0);
 
-            // Hem loga basıyoruz
-            Log.Information("📊 [{TreeName}] Insert: {InsertTime:F2}ms, Search: {SearchTime:F2}ms, RAM: {Ram:F2}KB",
-                treeName, insertTimeMs, searchTimeMs, allocatedKb);
+            // Loga Yazdır
+            Log.Information("📊 [{TreeName}] Insert: {InsertTime:F2}ms, Search: {SearchTime:F2}ms, Delete: {DeleteTime:F2}ms",
+                treeName, insertTimeMs, searchTimeMs, deleteTimeMs);
 
-            // Hem de API / Dashboard için veri modelimizi dönüyoruz
+            // YENİ: DTO'ya dönüş yaparken GetStepCount() metodunu da bağlıyoruz
             return new BenchmarkResultModel
             {
                 TreeName = treeName,
@@ -90,6 +89,7 @@ namespace TreeBench.BS.Services
                 MaxDepth = tree.GetMaxDepth(),
                 MinDepth = tree.GetMinDepth(),
                 TotalRotations = tree.GetRotationsCount(),
+                TotalSteps = tree.GetStepCount(), // YENİ: Temel sınıftan gelecek
                 RamCostKb = Math.Round(allocatedKb, 2)
             };
         }

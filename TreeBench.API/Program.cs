@@ -2,6 +2,7 @@ using Serilog;
 using TreeBench.BS.Interfaces;
 using TreeBench.BS.Models;
 using TreeBench.BS.Services;
+using static System.Net.WebRequestMethods;
 
 // --- SERILOG CONFIGURATION FOR API ---
 Log.Logger = new LoggerConfiguration()
@@ -20,23 +21,24 @@ try
 
     builder.Host.UseSerilog();
 
-    // --- CONTROLLERS & OPENAPI (SWAGGER) ---
+    // İŞTE EKSİK OLAN O SİHİRLİ SATIR (Eklendi):
     builder.Services.AddControllers();
 
     builder.Services.AddCors(options =>
     {
         options.AddPolicy("AllowAll",
-            policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            policy => policy
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
     });
 
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddOpenApi();
 
-    // --- TREEBENCH.BS CORE SERVICES (DEPENDENCY INJECTION) ---
     builder.Services.AddSingleton<DataGenerator>();
     builder.Services.AddSingleton<BenchmarkService>();
 
-    // Managed Trees
     builder.Services.AddTransient<IBalancedTree, AvlTree>();
     builder.Services.AddTransient<IBalancedTree, RedBlackTree>();
     builder.Services.AddTransient<IBalancedTree, SplayTree>();
@@ -45,7 +47,7 @@ try
 
     var app = builder.Build();
 
-    // --- HTTP REQUEST PIPELINE ---
+
     if (app.Environment.IsDevelopment())
     {
         app.MapOpenApi();
@@ -53,15 +55,11 @@ try
 
     app.UseDefaultFiles();
     app.UseStaticFiles();
-    app.UseHttpsRedirection();
     app.UseCors("AllowAll");
-
-    app.UseHttpsRedirection();
-    app.UseAuthorization();
     app.MapControllers();
 
     Log.Information("🚀 TreeBench API successfully started and listening for requests.");
-    app.Run();
+    app.Run("http://localhost:5274");
 }
 catch (Exception ex)
 {

@@ -1,0 +1,293 @@
+2026-08-05 08:27:11.481 +03:00 [INF] ==================================================
+2026-08-05 08:27:11.564 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 08:27:11.567 +03:00 [INF] ==================================================
+2026-08-05 08:27:12.787 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 08:27:13.281 +03:00 [INF] Now listening on: https://localhost:7055
+2026-08-05 08:27:13.290 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 08:27:13.366 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 08:27:13.370 +03:00 [INF] Hosting environment: Development
+2026-08-05 08:27:13.372 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 08:27:24.040 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-08-05 08:27:24.100 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 08:27:24.150 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-08-05 08:27:41.422 +03:00 [INF] 📊 [AvlTree] Insert: 121.78ms, Search: 3.79ms, Delete: 9.35ms
+2026-08-05 08:27:41.533 +03:00 [INF] 📊 [RedBlackTree] Insert: 58.83ms, Search: 5.11ms, Delete: 7.16ms
+2026-08-05 08:27:41.771 +03:00 [INF] 📊 [SplayTree] Insert: 152.21ms, Search: 11.06ms, Delete: 8.56ms
+2026-08-05 08:27:42.559 +03:00 [INF] 📊 [BPlusTree] Insert: 537.99ms, Search: 40.35ms, Delete: 31.60ms
+2026-08-05 08:27:42.961 +03:00 [INF] 📊 [QuadTree] Insert: 166.68ms, Search: 19.25ms, Delete: 13.53ms
+2026-08-05 08:27:42.997 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TreeBench.BS.Services.BenchmarkResultModel, TreeBench.BS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-05 08:27:43.048 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 18888.6878ms
+2026-08-05 08:27:43.053 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 08:27:43.062 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 200 null application/json; charset=utf-8 19031.1067ms
+2026-08-05 08:30:58.760 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - null null
+2026-08-05 08:30:58.770 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - 307 0 null 11.2874ms
+2026-08-05 08:30:59.834 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - null null
+2026-08-05 08:30:59.841 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - 307 0 null 7.1076ms
+2026-08-05 08:31:00.001 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - null null
+2026-08-05 08:31:00.009 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - 307 0 null 8.1858ms
+2026-08-05 08:31:00.147 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - null null
+2026-08-05 08:31:00.152 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - 307 0 null 4.9229ms
+2026-08-05 08:31:00.296 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - null null
+2026-08-05 08:31:00.299 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - 307 0 null 2.7187ms
+2026-08-05 08:31:00.435 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - null null
+2026-08-05 08:31:00.440 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - 307 0 null 5.0009ms
+2026-08-05 08:31:00.587 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - null null
+2026-08-05 08:31:00.590 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - 307 0 null 3.4845ms
+2026-08-05 08:31:00.734 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - null null
+2026-08-05 08:31:00.739 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - 307 0 null 4.8465ms
+2026-08-05 08:31:05.523 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - null null
+2026-08-05 08:31:05.529 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - 307 0 null 6.5581ms
+2026-08-05 08:31:06.399 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - null null
+2026-08-05 08:31:06.403 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - 307 0 null 4.1055ms
+2026-08-05 08:31:06.559 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - null null
+2026-08-05 08:31:06.565 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - 307 0 null 6.5731ms
+2026-08-05 08:31:06.706 +03:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - null null
+2026-08-05 08:31:06.712 +03:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5274/api/Benchmark/run?mode=1 - 307 0 null 5.9423ms
+2026-08-05 08:34:16.515 +03:00 [INF] ==================================================
+2026-08-05 08:34:16.586 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 08:34:16.588 +03:00 [INF] ==================================================
+2026-08-05 08:34:17.270 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 08:34:17.746 +03:00 [INF] Now listening on: https://localhost:7055
+2026-08-05 08:34:17.754 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 08:34:18.006 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 08:34:18.008 +03:00 [INF] Hosting environment: Development
+2026-08-05 08:34:18.009 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 08:34:21.037 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-08-05 08:34:21.131 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 08:34:21.179 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-08-05 08:34:38.362 +03:00 [INF] 📊 [AvlTree] Insert: 138.69ms, Search: 6.45ms, Delete: 11.75ms
+2026-08-05 08:34:38.485 +03:00 [INF] 📊 [RedBlackTree] Insert: 69.20ms, Search: 3.41ms, Delete: 7.36ms
+2026-08-05 08:34:38.746 +03:00 [INF] 📊 [SplayTree] Insert: 158.62ms, Search: 14.61ms, Delete: 13.20ms
+2026-08-05 08:34:39.716 +03:00 [INF] 📊 [BPlusTree] Insert: 697.51ms, Search: 54.13ms, Delete: 41.61ms
+2026-08-05 08:34:40.165 +03:00 [INF] 📊 [QuadTree] Insert: 178.68ms, Search: 22.47ms, Delete: 11.31ms
+2026-08-05 08:34:40.190 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TreeBench.BS.Services.BenchmarkResultModel, TreeBench.BS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-05 08:34:40.229 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 19037.1737ms
+2026-08-05 08:34:40.236 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 08:34:40.248 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 200 null application/json; charset=utf-8 19225.4855ms
+2026-08-05 08:35:42.984 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-08-05 08:35:42.992 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 08:35:42.998 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-08-05 08:41:00.158 +03:00 [INF] ==================================================
+2026-08-05 08:41:00.448 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 08:41:00.451 +03:00 [INF] ==================================================
+2026-08-05 08:41:01.432 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 08:41:02.141 +03:00 [INF] Now listening on: https://localhost:7055
+2026-08-05 08:41:02.154 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 08:41:02.276 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 08:41:02.279 +03:00 [INF] Hosting environment: Development
+2026-08-05 08:41:02.284 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 08:41:02.617 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-08-05 08:41:02.696 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 08:41:02.762 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-08-05 08:41:20.267 +03:00 [INF] 📊 [AvlTree] Insert: 134.92ms, Search: 4.42ms, Delete: 8.95ms
+2026-08-05 08:41:20.364 +03:00 [INF] 📊 [RedBlackTree] Insert: 45.09ms, Search: 4.68ms, Delete: 5.37ms
+2026-08-05 08:41:20.617 +03:00 [INF] 📊 [SplayTree] Insert: 162.33ms, Search: 16.23ms, Delete: 8.49ms
+2026-08-05 08:41:21.607 +03:00 [INF] 📊 [BPlusTree] Insert: 752.00ms, Search: 45.00ms, Delete: 38.35ms
+2026-08-05 08:41:22.099 +03:00 [INF] 📊 [QuadTree] Insert: 215.11ms, Search: 26.12ms, Delete: 24.29ms
+2026-08-05 08:41:22.125 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TreeBench.BS.Services.BenchmarkResultModel, TreeBench.BS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-05 08:41:22.174 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 19396.4657ms
+2026-08-05 08:41:22.183 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 08:41:22.195 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 499 null application/json; charset=utf-8 19600.2578ms
+2026-08-05 08:41:27.560 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - null 0
+2026-08-05 08:41:27.572 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 08:41:27.578 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-08-05 08:41:44.476 +03:00 [INF] 📊 [AvlTree] Insert: 187.98ms, Search: 3.27ms, Delete: 11.00ms
+2026-08-05 08:41:44.680 +03:00 [INF] 📊 [RedBlackTree] Insert: 86.09ms, Search: 6.75ms, Delete: 6.95ms
+2026-08-05 08:41:44.999 +03:00 [INF] 📊 [SplayTree] Insert: 180.41ms, Search: 15.42ms, Delete: 7.48ms
+2026-08-05 08:41:45.845 +03:00 [INF] 📊 [BPlusTree] Insert: 549.08ms, Search: 49.43ms, Delete: 33.40ms
+2026-08-05 08:41:46.326 +03:00 [INF] 📊 [QuadTree] Insert: 166.55ms, Search: 22.60ms, Delete: 20.18ms
+2026-08-05 08:41:46.340 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TreeBench.BS.Services.BenchmarkResultModel, TreeBench.BS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-05 08:41:46.351 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 18768.3416ms
+2026-08-05 08:41:46.353 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 08:41:46.355 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7055/api/Benchmark/run?mode=1 - 200 null application/json; charset=utf-8 18794.6981ms
+2026-08-05 09:20:31.056 +03:00 [INF] ==================================================
+2026-08-05 09:20:31.154 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 09:20:31.157 +03:00 [INF] ==================================================
+2026-08-05 09:20:31.945 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 09:20:32.249 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 09:20:32.338 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 09:20:32.341 +03:00 [INF] Hosting environment: Development
+2026-08-05 09:20:32.343 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 09:33:03.030 +03:00 [INF] ==================================================
+2026-08-05 09:33:03.079 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 09:33:03.079 +03:00 [INF] ==================================================
+2026-08-05 09:33:03.638 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 09:33:03.819 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 09:33:03.857 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 09:33:03.858 +03:00 [INF] Hosting environment: Development
+2026-08-05 09:33:03.858 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 09:33:10.340 +03:00 [INF] ==================================================
+2026-08-05 09:33:10.372 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 09:33:10.373 +03:00 [INF] ==================================================
+2026-08-05 09:33:10.702 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 09:33:10.898 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 09:33:10.946 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 09:33:10.947 +03:00 [INF] Hosting environment: Development
+2026-08-05 09:33:10.948 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 11:19:09.622 +03:00 [INF] ==================================================
+2026-08-05 11:19:09.707 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 11:19:09.708 +03:00 [INF] ==================================================
+2026-08-05 11:19:10.724 +03:00 [FTL] ❌ TreeBench API terminated unexpectedly!
+System.InvalidOperationException: Unable to find the required services. Please add all the required services by calling 'IServiceCollection.AddAuthorization' in the application startup code.
+   at Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.VerifyServicesRegistered(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.UseAuthorization(IApplicationBuilder app)
+   at Program.<Main>$(String[] args) in C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API\Program.cs:line 55
+2026-08-05 11:22:45.682 +03:00 [INF] ==================================================
+2026-08-05 11:22:45.740 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 11:22:45.744 +03:00 [INF] ==================================================
+2026-08-05 11:22:46.063 +03:00 [FTL] ❌ TreeBench API terminated unexpectedly!
+System.InvalidOperationException: Unable to find the required services. Please add all the required services by calling 'IServiceCollection.AddAuthorization' in the application startup code.
+   at Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.VerifyServicesRegistered(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.UseAuthorization(IApplicationBuilder app)
+   at Program.<Main>$(String[] args) in C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API\Program.cs:line 56
+2026-08-05 11:22:53.486 +03:00 [INF] ==================================================
+2026-08-05 11:22:53.521 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 11:22:53.522 +03:00 [INF] ==================================================
+2026-08-05 11:22:53.672 +03:00 [FTL] ❌ TreeBench API terminated unexpectedly!
+System.InvalidOperationException: Unable to find the required services. Please add all the required services by calling 'IServiceCollection.AddAuthorization' in the application startup code.
+   at Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.VerifyServicesRegistered(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.UseAuthorization(IApplicationBuilder app)
+   at Program.<Main>$(String[] args) in C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API\Program.cs:line 56
+2026-08-05 11:24:48.571 +03:00 [INF] ==================================================
+2026-08-05 11:24:48.606 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 11:24:48.608 +03:00 [INF] ==================================================
+2026-08-05 11:24:48.839 +03:00 [FTL] ❌ TreeBench API terminated unexpectedly!
+System.InvalidOperationException: Unable to find the required services. Please add all the required services by calling 'IServiceCollection.AddControllers' inside the call to 'ConfigureServices(...)' in the application startup code.
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.EnsureControllerServices(IEndpointRouteBuilder endpoints)
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers(IEndpointRouteBuilder endpoints)
+   at Program.<Main>$(String[] args) in C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API\Program.cs:line 56
+2026-08-05 11:24:53.809 +03:00 [INF] ==================================================
+2026-08-05 11:24:53.844 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 11:24:53.845 +03:00 [INF] ==================================================
+2026-08-05 11:24:54.028 +03:00 [FTL] ❌ TreeBench API terminated unexpectedly!
+System.InvalidOperationException: Unable to find the required services. Please add all the required services by calling 'IServiceCollection.AddControllers' inside the call to 'ConfigureServices(...)' in the application startup code.
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.EnsureControllerServices(IEndpointRouteBuilder endpoints)
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers(IEndpointRouteBuilder endpoints)
+   at Program.<Main>$(String[] args) in C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API\Program.cs:line 56
+2026-08-05 11:24:57.945 +03:00 [INF] ==================================================
+2026-08-05 11:24:57.995 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 11:24:57.996 +03:00 [INF] ==================================================
+2026-08-05 11:24:58.244 +03:00 [FTL] ❌ TreeBench API terminated unexpectedly!
+System.InvalidOperationException: Unable to find the required services. Please add all the required services by calling 'IServiceCollection.AddControllers' inside the call to 'ConfigureServices(...)' in the application startup code.
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.EnsureControllerServices(IEndpointRouteBuilder endpoints)
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers(IEndpointRouteBuilder endpoints)
+   at Program.<Main>$(String[] args) in C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API\Program.cs:line 56
+2026-08-05 11:25:10.665 +03:00 [INF] ==================================================
+2026-08-05 11:25:10.700 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 11:25:10.701 +03:00 [INF] ==================================================
+2026-08-05 11:25:10.865 +03:00 [FTL] ❌ TreeBench API terminated unexpectedly!
+System.InvalidOperationException: Unable to find the required services. Please add all the required services by calling 'IServiceCollection.AddControllers' inside the call to 'ConfigureServices(...)' in the application startup code.
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.EnsureControllerServices(IEndpointRouteBuilder endpoints)
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers(IEndpointRouteBuilder endpoints)
+   at Program.<Main>$(String[] args) in C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API\Program.cs:line 56
+2026-08-05 11:25:36.757 +03:00 [INF] ==================================================
+2026-08-05 11:25:36.797 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 11:25:36.798 +03:00 [INF] ==================================================
+2026-08-05 11:25:37.085 +03:00 [FTL] ❌ TreeBench API terminated unexpectedly!
+System.InvalidOperationException: Unable to find the required services. Please add all the required services by calling 'IServiceCollection.AddControllers' inside the call to 'ConfigureServices(...)' in the application startup code.
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.EnsureControllerServices(IEndpointRouteBuilder endpoints)
+   at Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions.MapControllers(IEndpointRouteBuilder endpoints)
+   at Program.<Main>$(String[] args) in C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API\Program.cs:line 56
+2026-08-05 11:28:33.104 +03:00 [INF] ==================================================
+2026-08-05 11:28:33.142 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 11:28:33.149 +03:00 [INF] ==================================================
+2026-08-05 11:28:33.652 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 11:28:33.866 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 11:28:33.905 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 11:28:33.907 +03:00 [INF] Hosting environment: Development
+2026-08-05 11:28:33.908 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 11:35:02.137 +03:00 [INF] ==================================================
+2026-08-05 11:35:02.174 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 11:35:02.175 +03:00 [INF] ==================================================
+2026-08-05 11:35:02.674 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 11:35:02.845 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 11:35:02.889 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 11:35:02.890 +03:00 [INF] Hosting environment: Development
+2026-08-05 11:35:02.891 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 11:35:46.649 +03:00 [INF] ==================================================
+2026-08-05 11:35:46.695 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 11:35:46.696 +03:00 [INF] ==================================================
+2026-08-05 11:35:47.063 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 11:35:47.413 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 11:35:47.498 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 11:35:47.500 +03:00 [INF] Hosting environment: Development
+2026-08-05 11:35:47.501 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 11:37:50.748 +03:00 [INF] ==================================================
+2026-08-05 11:37:50.791 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 11:37:50.792 +03:00 [INF] ==================================================
+2026-08-05 11:37:51.259 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 11:37:51.485 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 11:37:51.531 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 11:37:51.532 +03:00 [INF] Hosting environment: Development
+2026-08-05 11:37:51.533 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 12:05:37.070 +03:00 [INF] ==================================================
+2026-08-05 12:05:37.112 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 12:05:37.113 +03:00 [INF] ==================================================
+2026-08-05 12:05:37.933 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 12:05:38.108 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 12:05:38.186 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 12:05:38.194 +03:00 [INF] Hosting environment: Development
+2026-08-05 12:05:38.199 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 12:18:29.493 +03:00 [INF] ==================================================
+2026-08-05 12:18:29.536 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 12:18:29.536 +03:00 [INF] ==================================================
+2026-08-05 12:18:30.030 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 12:18:30.193 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 12:18:30.232 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 12:18:30.233 +03:00 [INF] Hosting environment: Development
+2026-08-05 12:18:30.234 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 12:18:46.077 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - application/json 0
+2026-08-05 12:18:46.187 +03:00 [INF] CORS policy execution successful.
+2026-08-05 12:18:46.201 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 12:18:46.289 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-08-05 12:19:03.826 +03:00 [INF] 📊 [AvlTree] Insert: 167.15ms, Search: 5.57ms, Delete: 6.77ms
+2026-08-05 12:19:03.936 +03:00 [INF] 📊 [RedBlackTree] Insert: 48.25ms, Search: 10.40ms, Delete: 6.03ms
+2026-08-05 12:19:04.150 +03:00 [INF] 📊 [SplayTree] Insert: 138.06ms, Search: 13.06ms, Delete: 12.79ms
+2026-08-05 12:19:05.187 +03:00 [INF] 📊 [BPlusTree] Insert: 767.81ms, Search: 71.62ms, Delete: 44.01ms
+2026-08-05 12:19:05.771 +03:00 [INF] 📊 [QuadTree] Insert: 239.76ms, Search: 28.28ms, Delete: 23.28ms
+2026-08-05 12:19:05.800 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TreeBench.BS.Services.BenchmarkResultModel, TreeBench.BS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-05 12:19:05.848 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 19543.6133ms
+2026-08-05 12:19:05.855 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 12:19:05.869 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - 200 null application/json; charset=utf-8 19813.6672ms
+2026-08-05 12:19:48.589 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - application/json 0
+2026-08-05 12:19:48.601 +03:00 [INF] CORS policy execution successful.
+2026-08-05 12:19:48.603 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 12:19:48.606 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-08-05 12:20:05.596 +03:00 [INF] 📊 [AvlTree] Insert: 177.51ms, Search: 5.33ms, Delete: 13.95ms
+2026-08-05 12:20:05.808 +03:00 [INF] 📊 [RedBlackTree] Insert: 101.75ms, Search: 3.42ms, Delete: 6.16ms
+2026-08-05 12:20:06.118 +03:00 [INF] 📊 [SplayTree] Insert: 186.52ms, Search: 13.67ms, Delete: 14.80ms
+2026-08-05 12:20:07.652 +03:00 [INF] 📊 [BPlusTree] Insert: 986.52ms, Search: 90.71ms, Delete: 106.45ms
+2026-08-05 12:20:08.234 +03:00 [INF] 📊 [QuadTree] Insert: 209.66ms, Search: 18.57ms, Delete: 13.67ms
+2026-08-05 12:20:08.256 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TreeBench.BS.Services.BenchmarkResultModel, TreeBench.BS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-05 12:20:08.260 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 19650.2295ms
+2026-08-05 12:20:08.263 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 12:20:08.266 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - 200 null application/json; charset=utf-8 19679.2642ms
+2026-08-05 12:43:02.522 +03:00 [INF] ==================================================
+2026-08-05 12:43:02.619 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 12:43:02.623 +03:00 [INF] ==================================================
+2026-08-05 12:43:03.481 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 12:43:03.770 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 12:43:03.833 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 12:43:03.836 +03:00 [INF] Hosting environment: Development
+2026-08-05 12:43:03.838 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
+2026-08-05 12:43:09.292 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - application/json 0
+2026-08-05 12:43:09.526 +03:00 [INF] CORS policy execution successful.
+2026-08-05 12:43:09.556 +03:00 [INF] Executing endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 12:43:09.856 +03:00 [INF] Route matched with {action = "RunBenchmark", controller = "Benchmark"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RunBenchmark(Int32) on controller TreeBench.API.Controllers.BenchmarkController (TreeBench.API).
+2026-08-05 12:43:28.296 +03:00 [INF] 📊 [AvlTree] Insert: 364.18ms, Search: 10.62ms, Delete: 33.09ms
+2026-08-05 12:43:28.663 +03:00 [INF] 📊 [RedBlackTree] Insert: 226.79ms, Search: 7.50ms, Delete: 10.84ms
+2026-08-05 12:43:29.203 +03:00 [INF] 📊 [SplayTree] Insert: 352.24ms, Search: 26.49ms, Delete: 22.93ms
+2026-08-05 12:43:31.067 +03:00 [INF] 📊 [BPlusTree] Insert: 1395.87ms, Search: 89.99ms, Delete: 78.77ms
+2026-08-05 12:43:31.867 +03:00 [INF] 📊 [QuadTree] Insert: 320.29ms, Search: 75.41ms, Delete: 31.64ms
+2026-08-05 12:43:31.911 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TreeBench.BS.Services.BenchmarkResultModel, TreeBench.BS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-05 12:43:32.009 +03:00 [INF] Executed action TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API) in 22051.3823ms
+2026-08-05 12:43:32.026 +03:00 [INF] Executed endpoint 'TreeBench.API.Controllers.BenchmarkController.RunBenchmark (TreeBench.API)'
+2026-08-05 12:43:32.059 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5274/api/Benchmark/run?mode=1 - 200 null application/json; charset=utf-8 22797.9133ms
+2026-08-05 12:44:41.419 +03:00 [INF] ==================================================
+2026-08-05 12:44:41.483 +03:00 [INF]  TREEBENCH API ENGINE INITIALIZING...
+2026-08-05 12:44:41.485 +03:00 [INF] ==================================================
+2026-08-05 12:44:42.136 +03:00 [INF] 🚀 TreeBench API successfully started and listening for requests.
+2026-08-05 12:44:42.307 +03:00 [INF] Now listening on: http://localhost:5274
+2026-08-05 12:44:42.352 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-05 12:44:42.353 +03:00 [INF] Hosting environment: Development
+2026-08-05 12:44:42.354 +03:00 [INF] Content root path: C:\Users\Administrator\Documents\Dersler\Github.Projeler\CSharp\TreeBench\TreeBench.API
