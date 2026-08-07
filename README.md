@@ -211,8 +211,11 @@ Navigate to http://localhost:5173 in your browser. Click Run Benchmark to begin 
 
 ## 🗺️ Development Roadmap
 
+<<<<<<< HEAD
 [x] v1.0.0 - AVL & Red-Black Tree benchmarking with advanced memory profiling.
 
+=======
+>>>>>>> cb243ee34e086ba5792125af0a433a5e5a05c08c
 [x] v1.5.0 - .NET Dependency Injection & Dapper micro-ORM integration.
 
 [x] v2.0.0 - Abstract Template Engine refactoring, Fallback architecture, Serilog structure, Multi-way structures (B+ Tree), and Spatial indexing (Quadtree).
@@ -221,6 +224,7 @@ Navigate to http://localhost:5173 in your browser. Click Run Benchmark to begin 
 
 [ ] v3.0.0 - Docker containerization, CI/CD GitHub Actions pipeline, and SignalR real-time telemetry streaming.
 
+<<<<<<< HEAD
 
 ## 🌳 Models Tree Update (Template Method Refactoring)
 
@@ -269,6 +273,8 @@ graph TD
 
     TimerStop --> Result[Return Standardized <br> BenchmarkResultModel]
 
+=======
+>>>>>>> cb243ee34e086ba5792125af0a433a5e5a05c08c
 ## 📄 License & Architecture
 
 This architecture is completely open-source and released under the MIT License. Designed and engineered for high-performance enterprise benchmarking analysis.
