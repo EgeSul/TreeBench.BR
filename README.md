@@ -130,6 +130,58 @@ graph TD
 
 ---
 
+## 🌳 Models Tree Update (Template Method Refactoring)
+
+In version 2.0+, the tree architecture underwent a massive refactoring process. Instead of individual trees handling their own edge cases, execution timers, and validation logic, the system now enforces the **Template Method Design Pattern** via an abstract `BaseBalancedTree` class.
+
+This guarantees that all performance metrics (Stopwatch operations) and null-reference safety checks are uniformly executed before reaching the specific algorithmic behaviors (`InsertInternal`, `SearchInternal`, `DeleteInternal`) of the concrete tree implementations.
+
+### Algorithmic Execution Pipeline
+
+```mermaid
+
+graph TD
+    subgraph ClientRequest ["Client / Profiler Service"]
+        Req[Initiate Tree Operation <br> Insert / Search / Delete]
+    end
+
+    subgraph BaseClass ["BaseBalancedTree.cs (Abstract Engine)"]
+        TimerStart((Start High-Res <br> Stopwatch))
+        Validation{Edge Case & <br> Null Pointer Check}
+        TimerStop((Stop Stopwatch & <br> Capture Telemetry))
+    end
+
+    subgraph ConcreteTrees ["Concrete Algorithmic Implementations"]
+        AVL[AvlTree <br> Execute Internal Logic]
+        RBT[RedBlackTree <br> Execute Internal Logic]
+        Splay[SplayTree <br> Execute Internal Logic]
+        BPlus[BPlusTree <br> Execute Internal Logic]
+        Quad[QuadTree <br> Execute Internal Logic]
+    end
+
+    Req --> TimerStart
+    TimerStart --> Validation
+    
+    Validation -->|Pass| AVL
+    Validation -->|Pass| RBT
+    Validation -->|Pass| Splay
+    Validation -->|Pass| BPlus
+    Validation -->|Pass| Quad
+    
+    Validation -->|Fail: Empty Tree| TimerStop
+
+    AVL --> TimerStop
+    RBT --> TimerStop
+    Splay --> TimerStop
+    BPlus --> TimerStop
+    Quad --> TimerStop
+
+    TimerStop --> Result[Return Standardized <br> BenchmarkResultModel]
+
+```
+
+---
+
 ## 🔬 Monitored Metrics & Low-Level Profiling
 
 The lab captures real-time telemetry backed by structural validation parameters, immediately rendered on the Vue UI:
@@ -211,11 +263,8 @@ Navigate to http://localhost:5173 in your browser. Click Run Benchmark to begin 
 
 ## 🗺️ Development Roadmap
 
-<<<<<<< HEAD
 [x] v1.0.0 - AVL & Red-Black Tree benchmarking with advanced memory profiling.
 
-=======
->>>>>>> cb243ee34e086ba5792125af0a433a5e5a05c08c
 [x] v1.5.0 - .NET Dependency Injection & Dapper micro-ORM integration.
 
 [x] v2.0.0 - Abstract Template Engine refactoring, Fallback architecture, Serilog structure, Multi-way structures (B+ Tree), and Spatial indexing (Quadtree).
@@ -224,57 +273,6 @@ Navigate to http://localhost:5173 in your browser. Click Run Benchmark to begin 
 
 [ ] v3.0.0 - Docker containerization, CI/CD GitHub Actions pipeline, and SignalR real-time telemetry streaming.
 
-<<<<<<< HEAD
-
-## 🌳 Models Tree Update (Template Method Refactoring)
-
-In version 2.0+, the tree architecture underwent a massive refactoring process. Instead of individual trees handling their own edge cases, execution timers, and validation logic, the system now enforces the **Template Method Design Pattern** via an abstract `BaseBalancedTree` class.
-
-This guarantees that all performance metrics (Stopwatch operations) and null-reference safety checks are uniformly executed before reaching the specific algorithmic behaviors (`InsertInternal`, `SearchInternal`, `DeleteInternal`) of the concrete tree implementations.
-
-### Algorithmic Execution Pipeline
-
-```mermaid
-graph TD
-    subgraph ClientRequest ["Client / Profiler Service"]
-        Req[Initiate Tree Operation <br> Insert / Search / Delete]
-    end
-
-    subgraph BaseClass ["BaseBalancedTree.cs (Abstract Engine)"]
-        TimerStart((Start High-Res <br> Stopwatch))
-        Validation{Edge Case & <br> Null Pointer Check}
-        TimerStop((Stop Stopwatch & <br> Capture Telemetry))
-    end
-
-    subgraph ConcreteTrees ["Concrete Algorithmic Implementations"]
-        AVL[AvlTree <br> Execute Internal Logic]
-        RBT[RedBlackTree <br> Execute Internal Logic]
-        Splay[SplayTree <br> Execute Internal Logic]
-        BPlus[BPlusTree <br> Execute Internal Logic]
-        Quad[QuadTree <br> Execute Internal Logic]
-    end
-
-    Req --> TimerStart
-    TimerStart --> Validation
-    
-    Validation -->|Pass| AVL
-    Validation -->|Pass| RBT
-    Validation -->|Pass| Splay
-    Validation -->|Pass| BPlus
-    Validation -->|Pass| Quad
-    
-    Validation -->|Fail: Empty Tree| TimerStop
-
-    AVL --> TimerStop
-    RBT --> TimerStop
-    Splay --> TimerStop
-    BPlus --> TimerStop
-    Quad --> TimerStop
-
-    TimerStop --> Result[Return Standardized <br> BenchmarkResultModel]
-
-=======
->>>>>>> cb243ee34e086ba5792125af0a433a5e5a05c08c
 ## 📄 License & Architecture
 
 This architecture is completely open-source and released under the MIT License. Designed and engineered for high-performance enterprise benchmarking analysis.
