@@ -42,7 +42,7 @@ namespace TreeBench.BS.Models
 
         private Node InsertRec(Node node, int key)
         {
-            stepCount++; // YENİ: Adım sayacı
+            stepCount++; 
             if (node == null) { count++; return new Node(key); }
             if (key < node.Key) node.Left = InsertRec(node.Left, key);
             else if (key > node.Key) node.Right = InsertRec(node.Right, key);
@@ -60,7 +60,7 @@ namespace TreeBench.BS.Models
 
         private bool SearchRec(Node node, int key)
         {
-            stepCount++; // YENİ: Adım sayacı
+            stepCount++; 
             if (node == null) return false;
             if (key == node.Key) return true;
             return key < node.Key ? SearchRec(node.Left, key) : SearchRec(node.Right, key);
@@ -68,7 +68,7 @@ namespace TreeBench.BS.Models
 
         private Node DeleteRec(Node root, int key)
         {
-            stepCount++; // YENİ: Adım sayacı
+            stepCount++; 
             if (root == null) return root;
 
             if (key < root.Key) root.Left = DeleteRec(root.Left, key);

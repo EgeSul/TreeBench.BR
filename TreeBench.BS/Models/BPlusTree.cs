@@ -35,7 +35,7 @@ namespace TreeBench.BS.Models
 
         private void InsertNonFull(BPlusNode node, int key)
         {
-            stepCount++; // YENİ: Adım sayacı
+            stepCount++; 
             int i = node.Keys.Count - 1;
             if (node.IsLeaf)
             {
@@ -79,7 +79,7 @@ namespace TreeBench.BS.Models
             BPlusNode current = root;
             while (!current.IsLeaf)
             {
-                stepCount++; // YENİ: Adım sayacı
+                stepCount++; 
                 int i = 0;
                 while (i < current.Keys.Count && key >= current.Keys[i]) i++;
                 current = current.Children[i];
@@ -93,7 +93,7 @@ namespace TreeBench.BS.Models
             BPlusNode current = root;
             while (!current.IsLeaf)
             {
-                stepCount++; // YENİ: Adım sayacı
+                stepCount++; 
                 int i = 0;
                 while (i < current.Keys.Count && key >= current.Keys[i]) i++;
                 current = current.Children[i];

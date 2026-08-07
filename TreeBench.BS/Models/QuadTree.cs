@@ -33,7 +33,7 @@ namespace TreeBench.BS.Models
 
         private bool InsertInternal(QuadNode node, Point p)
         {
-            stepCount++; // YENİ: Adım sayacı
+            stepCount++; 
             if (!node.Boundary.Contains(p)) return false;
 
             if (node.Points.Count < CAPACITY && !node.IsDivided)
@@ -77,7 +77,7 @@ namespace TreeBench.BS.Models
 
         private bool QueryInternal(QuadNode node, Point p)
         {
-            stepCount++; // YENİ: Adım sayacı
+            stepCount++;
             if (!node.Boundary.Contains(p)) return false;
             foreach (var point in node.Points) if (point.OriginalKey == p.OriginalKey) return true;
 
@@ -99,7 +99,7 @@ namespace TreeBench.BS.Models
 
         private bool DeleteInternal(QuadNode node, Point p)
         {
-            stepCount++; // YENİ: Adım sayacı
+            stepCount++; 
             if (!node.Boundary.Contains(p)) return false;
 
             for (int i = 0; i < node.Points.Count; i++)

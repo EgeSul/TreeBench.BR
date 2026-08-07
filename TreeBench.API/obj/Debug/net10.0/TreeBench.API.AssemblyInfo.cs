@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TreeBench.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea26459766077de6a006e0e0946b42a1faab076a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c7b3aedc81b8b66978526b18fa4bbd992749387")]
 [assembly: System.Reflection.AssemblyProductAttribute("TreeBench.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TreeBench.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

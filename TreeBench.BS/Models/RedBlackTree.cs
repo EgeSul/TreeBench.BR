@@ -88,7 +88,7 @@ namespace TreeBench.BS.Models
             Node u;
             while (k != root && k != null && k.Parent != null && k.Parent.Color == Color.Red)
             {
-                // 🛡️ EN BÜYÜK GÜVENLİK KALKANI: Parent.Parent null ise API'yi çökertme, döngüyü kır!
+                // THE BIGGEST SECURITY SHIELD: If Parent.Parent is null, it won't crash the API or break the loop!
                 if (k.Parent.Parent == null) break;
 
                 if (k.Parent == k.Parent.Parent.Right)

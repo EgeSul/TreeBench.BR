@@ -21,7 +21,6 @@ try
 
     builder.Host.UseSerilog();
 
-    // İŞTE EKSİK OLAN O SİHİRLİ SATIR (Eklendi):
     builder.Services.AddControllers();
 
     builder.Services.AddCors(options =>

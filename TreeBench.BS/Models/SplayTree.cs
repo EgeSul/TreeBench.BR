@@ -29,7 +29,7 @@ namespace TreeBench.BS.Models
         {
             root = Splay(root, key);
 
-            // 🛡️ GÜVENLİK KALKANI: Eğer silinecek anahtar ağaçta yoksa kökü silme, işlemi iptal et!
+            // 🛡 Security Shield: If the key is to be deleted from the tree or the root is to be removed, the operation is canceled and!
             if (root == null || root.Key != key) return;
 
             if (root.Left == null) root = root.Right;
@@ -45,7 +45,7 @@ namespace TreeBench.BS.Models
 
         private Node Splay(Node root, int key)
         {
-            stepCount++; // Adım sayacı
+            stepCount++;
 
             if (root == null || root.Key == key) return root;
 

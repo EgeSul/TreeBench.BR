@@ -28,7 +28,6 @@ namespace TreeBench.API.Controllers
         [HttpPost("run")]
         public async Task<IActionResult> RunBenchmark([FromQuery] int mode = 1)
         {
-            // SQL'den veya hafızadan veriyi al
             var testData = await Task.Run(() => _dataGenerator.FetchDataFromSql());
 
             if (testData == null || testData.Count == 0)
@@ -38,7 +37,6 @@ namespace TreeBench.API.Controllers
                 for (int i = 0; i < 100000; i++) testData.Add(rand.Next(1, 1000000));
             }
 
-            // Testleri paralel arka plan görevinde (Task) çalıştır
             var results = await Task.Run(() =>
             {
                 var list = new List<BenchmarkResultModel>();
@@ -50,7 +48,7 @@ namespace TreeBench.API.Controllers
                 return list;
             });
 
-            // 200 OK ile JSON DTO dön
+            // 200 OK 
             return Ok(results);
         }
     }

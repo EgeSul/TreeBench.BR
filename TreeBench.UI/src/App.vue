@@ -132,7 +132,6 @@
 <script setup>
 import { ref, computed, nextTick, watch } from 'vue';
 
-// --- REAKTİF DEĞİŞKENLER ---
 const lang = ref('en');
 const currentTheme = ref('light-mode');
 const chartType = ref('bar');
@@ -149,7 +148,6 @@ const chatMessages = ref([
   { sender: 'bot', text: 'Hello! I am ready to analyze system metrics.' }
 ]);
 
-// --- ÇOKLU DİL SÖZLÜĞÜ (i18n) ---
 const dictionary = {
   en: {
     themeToggle: 'Toggle Mode',
@@ -279,7 +277,6 @@ const chartOptions = computed(() => {
   };
 });
 
-// --- METRİK SEÇİMİNE GÖRE VERİ BAĞLAMA ---
 const chartSeries = computed(() => {
   if (!benchmarkResults.value.length) return [];
   const data = benchmarkResults.value;
@@ -313,7 +310,6 @@ const chartSeries = computed(() => {
   }
 });
 
-// --- API İSTEĞİ (PROXY İLE) ---
 const runBenchmark = async () => {
   isLoading.value = true;
   errorMsg.value = '';
