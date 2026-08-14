@@ -263,15 +263,12 @@ Navigate to http://localhost:5173 in your browser. Click Run Benchmark to begin 
 
 ## 🗺️ Development Roadmap
 
-[x] v1.0.0 - AVL & Red-Black Tree benchmarking with advanced memory profiling.
-
-[x] v1.5.0 - .NET Dependency Injection & Dapper micro-ORM integration.
-
-[x] v2.0.0 - Abstract Template Engine refactoring, Fallback architecture, Serilog structure, Multi-way structures (B+ Tree), and Spatial indexing (Quadtree).
-
-[x] v2.5.0 - ASP.NET Web API integration, Vue 3 SPA frontend with ApexCharts, CORS tunneling, and asynchronous execution.
-
-[ ] v3.0.0 - Docker containerization, CI/CD GitHub Actions pipeline, and SignalR real-time telemetry streaming.
+    [X] v1.0.0 - AVL & Red-Black Tree benchmarking with advanced memory profiling.
+    [X] v1.5.0 - .NET Dependency Injection & Dapper micro-ORM integration.
+    [X] v2.0.0 - Abstract Template Engine refactoring, Fallback architecture, Serilog structure, Multi-way structures (B+ Tree), and Spatial indexing (Quadtree).
+    [X] v2.5.0 - ASP.NET Web API integration, Vue 3 SPA frontend with ApexCharts, CORS tunneling, and asynchronous execution.
+    [X] v3.0.0 - Docker containerization, CI/CD GitHub Actions pipeline, and SignalR real-time telemetry streaming.
+    [ ] v4.0.0 - CI/CD GitHub Actions pipeline, Unit Testing (xUnit/Moq), and SignalR real-time telemetry streaming.
 
 ## 📄 License & Architecture
 
