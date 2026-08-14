@@ -316,7 +316,7 @@ const runBenchmark = async () => {
   
   try {
     
-const response = await fetch('http://localhost:5173/api/Benchmark/run?mode=1', {
+const response = await fetch('http://localhost:5174/api/Benchmark/run?mode=1', {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
     });

@@ -19,6 +19,16 @@ try
 
     var builder = WebApplication.CreateBuilder(args);
 
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowAll", policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+    });
+
     builder.Host.UseSerilog();
 
     builder.Services.AddControllers();
@@ -58,7 +68,7 @@ try
     app.MapControllers();
 
     Log.Information("🚀 TreeBench API successfully started and listening for requests.");
-    app.Run("http://localhost:5274");
+    app.Run();
 }
 catch (Exception ex)
 {
@@ -68,3 +78,4 @@ finally
 {
     Log.CloseAndFlush();
 }
+
