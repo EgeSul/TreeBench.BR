@@ -2,9 +2,8 @@ using Serilog;
 using TreeBench.BS.Interfaces;
 using TreeBench.BS.Models;
 using TreeBench.BS.Services;
-using static System.Net.WebRequestMethods;
+using TreeBench.API.Hubs;
 
-// --- SERILOG CONFIGURATION FOR API ---
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}")
@@ -14,7 +13,7 @@ Log.Logger = new LoggerConfiguration()
 try
 {
     Log.Information("==================================================");
-    Log.Information(" TREEBENCH API ENGINE INITIALIZING...");
+    Log.Information(" TREEBENCH SIGNALR API ENGINE INITIALIZING...");
     Log.Information("==================================================");
 
     var builder = WebApplication.CreateBuilder(args);
@@ -23,24 +22,17 @@ try
     {
         options.AddPolicy("AllowAll", policy =>
         {
-            policy.AllowAnyOrigin()
+            policy.SetIsOriginAllowed(_ => true)
                   .AllowAnyMethod()
-                  .AllowAnyHeader();
+                  .AllowAnyHeader()
+                  .AllowCredentials();
         });
     });
 
     builder.Host.UseSerilog();
-
     builder.Services.AddControllers();
 
-    builder.Services.AddCors(options =>
-    {
-        options.AddPolicy("AllowAll",
-            policy => policy
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader());
-    });
+    builder.Services.AddSignalR();
 
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddOpenApi();
@@ -56,7 +48,6 @@ try
 
     var app = builder.Build();
 
-
     if (app.Environment.IsDevelopment())
     {
         app.MapOpenApi();
@@ -67,7 +58,10 @@ try
     app.UseCors("AllowAll");
     app.MapControllers();
 
-    Log.Information("🚀 TreeBench API successfully started and listening for requests.");
+    // YENİ: Canlı yayın frekansımızı (Endpoint) belirledik
+    app.MapHub<BenchmarkHub>("/benchmarkHub");
+
+    Log.Information("🚀 TreeBench API + SignalR successfully started!");
     app.Run();
 }
 catch (Exception ex)
@@ -78,4 +72,3 @@ finally
 {
     Log.CloseAndFlush();
 }
-

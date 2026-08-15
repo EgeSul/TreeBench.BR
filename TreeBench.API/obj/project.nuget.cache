@@ -38,7 +38,7 @@
     {
       "code": "NU1903",
       "level": "Warning",
-      "message": "Package 'Microsoft.OpenApi' 2.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "message": "'Microsoft.OpenApi' 2.0.0 paketinde önem derecesi yüksek olan bilinen bir https://github.com/advisories/GHSA-v5pm-xwqc-g5wc güvenlik açığı var",
       "projectPath": "C:\\Users\\Administrator\\Documents\\Dersler\\Github.Projeler\\CSharp\\TreeBench\\TreeBench.API\\TreeBench.API.csproj",
       "warningLevel": 1,
       "filePath": "C:\\Users\\Administrator\\Documents\\Dersler\\Github.Projeler\\CSharp\\TreeBench\\TreeBench.API\\TreeBench.API.csproj",

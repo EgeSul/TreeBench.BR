@@ -18,50 +18,56 @@ namespace TreeBench.BS.Services
         public int MaxDepth { get; set; }
         public int MinDepth { get; set; }
         public int TotalRotations { get; set; }
-        public long TotalSteps { get; set; } 
+        public long TotalSteps { get; set; }
         public double RamCostKb { get; set; }
     }
 
     public class BenchmarkService
     {
-        public BenchmarkResultModel ExecuteSingleTreeTest(string treeName, IBalancedTree tree, List<int> testData, int mode)
+        public BenchmarkResultModel ExecuteSingleTreeTest(string treeName, IBalancedTree tree, List<int> testData, int mode, Action<string, string, int> onProgress = null)
         {
-            if (testData == null || testData.Count == 0)
-            {
-                Log.Warning("⚠️ [{TreeName}] Benchmark skipped: test data empty.", treeName);
-                return null;
-            }
+            if (testData == null || testData.Count == 0) return null;
 
             tree.ResetMetrics();
-
             GC.Collect();
             GC.WaitForPendingFinalizers();
             long memoryBefore = GC.GetTotalMemory(true);
 
+            int total = testData.Count;
+            int notifyStep = Math.Max(1, total / 10);
+
             Stopwatch sw = Stopwatch.StartNew();
-            foreach (int value in testData)
+            for (int i = 0; i < total; i++)
             {
-                tree.Insert(value);
+                tree.Insert(testData[i]);
+                if (i % notifyStep == 0)
+                    onProgress?.Invoke(treeName, "Insert", (i * 100) / total);
             }
             sw.Stop();
             double insertTimeMs = sw.Elapsed.TotalMilliseconds;
 
             double searchTimeMs = 0;
             sw.Restart();
-            for (int i = 0; i < 10000; i++)
+            int searchCount = 10000;
+            for (int i = 0; i < searchCount; i++)
             {
-                tree.Search(testData[i % testData.Count]);
+                tree.Search(testData[i % total]);
+                if (i % (searchCount / 10) == 0)
+                    onProgress?.Invoke(treeName, "Search", (i * 100) / searchCount);
             }
             sw.Stop();
             searchTimeMs = sw.Elapsed.TotalMilliseconds;
 
             double deleteTimeMs = 0;
             sw.Restart();
+            int deleteCount = 5000;
             Random rand = new Random();
-            for (int i = 0; i < 5000; i++)
+            for (int i = 0; i < deleteCount; i++)
             {
                 int randomIndex = rand.Next(0, testData.Count);
                 tree.Delete(testData[randomIndex]);
+                if (i % (deleteCount / 10) == 0)
+                    onProgress?.Invoke(treeName, "Delete", (i * 100) / deleteCount);
             }
             sw.Stop();
             deleteTimeMs = sw.Elapsed.TotalMilliseconds;
@@ -69,8 +75,7 @@ namespace TreeBench.BS.Services
             long memoryAfter = GC.GetTotalMemory(true);
             double allocatedKb = Math.Max(0, (memoryAfter - memoryBefore) / 1024.0);
 
-            Log.Information("📊 [{TreeName}] Insert: {InsertTime:F2}ms, Search: {SearchTime:F2}ms, Delete: {DeleteTime:F2}ms",
-                treeName, insertTimeMs, searchTimeMs, deleteTimeMs);
+            onProgress?.Invoke(treeName, "Complete", 100);
 
             return new BenchmarkResultModel
             {
@@ -83,7 +88,7 @@ namespace TreeBench.BS.Services
                 MaxDepth = tree.GetMaxDepth(),
                 MinDepth = tree.GetMinDepth(),
                 TotalRotations = tree.GetRotationsCount(),
-                TotalSteps = tree.GetStepCount(), 
+                TotalSteps = tree.GetStepCount(),
                 RamCostKb = Math.Round(allocatedKb, 2)
             };
         }

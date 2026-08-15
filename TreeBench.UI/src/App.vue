@@ -43,6 +43,19 @@
           <div class="error-box" v-if="errorMsg">
             <i class="fas fa-exclamation-triangle"></i> {{ errorMsg }}
           </div>
+
+          <div v-if="showProgressBar" class="live-progress-container mt-4" style="background: rgba(15, 98, 254, 0.1); padding: 15px; border-radius: 8px; border: 1px solid var(--primary);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem;">
+              <span style="color: var(--primary);"><i class="fas fa-tree"></i> {{ liveProgress.tree }}</span>
+              <span>{{ liveProgress.stage }}</span>
+            </div>
+            <div class="progress-bar-bg" style="width: 100%; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden;">
+              <div class="progress-bar-fill" :style="{ width: liveProgress.percent + '%', height: '100%', background: 'var(--primary)', transition: 'width 0.2s ease' }"></div>
+            </div>
+            <div style="text-align: right; font-size: 0.8rem; margin-top: 5px; color: var(--text-muted);">
+              %{{ liveProgress.percent }}
+            </div>
+          </div>
         </div>
 
         <div class="panel-card mt-4">
@@ -130,16 +143,21 @@
 </template>
 
 <script setup>
-import { ref, computed, nextTick, watch } from 'vue';
+import { ref, computed, nextTick, watch, onMounted } from 'vue';
+import * as signalR from '@microsoft/signalr';
 
 const lang = ref('en');
 const currentTheme = ref('light-mode');
 const chartType = ref('bar');
 const selectedMetric = ref('time'); 
 const isLoading = ref(false);
+const showProgressBar = ref(false);
 const isAiOpen = ref(false);
 const benchmarkResults = ref([]); 
 const errorMsg = ref('');
+
+const liveProgress = ref({ tree: 'Hazırlanıyor...', stage: 'Bekleniyor', percent: 0 });
+let hubConnection = null;
 
 const userQuery = ref('');
 const isAiTyping = ref(false);
@@ -209,6 +227,21 @@ watch(lang, () => {
   }
 });
 
+onMounted(() => {
+  hubConnection = new signalR.HubConnectionBuilder()
+    .withUrl("http://localhost:5274/benchmarkHub")
+    .withAutomaticReconnect()
+    .build();
+
+  hubConnection.on("ReceiveProgress", (treeName, stage, percent) => {
+    liveProgress.value = { tree: treeName, stage: stage, percent: percent };
+  });
+
+  hubConnection.start()
+    .then(() => console.log("📡 SignalR live broadcast has been connected!"))
+    .catch(err => console.error("SignalR connection error: ", err));
+});
+
 const sendAiMessage = async () => {
   if (!userQuery.value.trim()) return;
   const text = userQuery.value;
@@ -230,7 +263,6 @@ const toggleTheme = () => {
   currentTheme.value = currentTheme.value === 'light-mode' ? 'dark-mode' : 'light-mode';
 };
 
-// --- APEXCHARTS YAPILANDIRMASI ---
 const chartOptions = computed(() => {
   const isDark = currentTheme.value === 'dark-mode';
   
@@ -312,11 +344,13 @@ const chartSeries = computed(() => {
 
 const runBenchmark = async () => {
   isLoading.value = true;
+  showProgressBar.value = true;
   errorMsg.value = '';
+  benchmarkResults.value = [];
+  liveProgress.value = { tree: 'Hazırlanıyor...', stage: 'Running', percent: 0 };
   
   try {
-    
-const response = await fetch('http://localhost:5174/api/Benchmark/run?mode=1', {
+    const response = await fetch('http://localhost:5274/api/Benchmark/run?mode=1', {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
     });
