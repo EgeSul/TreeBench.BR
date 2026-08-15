@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TreeBench.BS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f55fd7270a6ec0de69ee04bd3ef45ca1e8158642")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+187ccafe7f3fec796d40a6a22b0656ab755ab0f5")]
 [assembly: System.Reflection.AssemblyProductAttribute("TreeBench.BS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TreeBench.BS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
