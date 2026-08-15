@@ -10,7 +10,7 @@ namespace TreeBench.Tests
         {
             var tree = new AvlTree();
             tree.Insert(42);
-            Assert.True(tree.Search(42), "AVL Tree: 42 sayısı bulunamadı!");
+            Assert.True(tree.Search(42), "AVL Tree: Number 42 not found!");
         }
 
         [Fact]
@@ -18,7 +18,7 @@ namespace TreeBench.Tests
         {
             var tree = new RedBlackTree();
             tree.Insert(99);
-            Assert.True(tree.Search(99), "Red-Black Tree: 99 sayısı bulunamadı!");
+            Assert.True(tree.Search(99), "Red-Black Tree: Number 99 not found!");
         }
 
         [Fact]
@@ -26,15 +26,14 @@ namespace TreeBench.Tests
         {
             var tree = new SplayTree();
             tree.Insert(150);
-            Assert.True(tree.Search(150), "Splay Tree: 150 sayısı bulunamadı!");
+            Assert.True(tree.Search(150), "Splay Tree: Number 150 not found!");
         }
         
         [Fact]
         public void EmptyTree_Search_ShouldReturnFalse()
         {
             var tree = new AvlTree();
-            // Ağaca hiçbir şey eklemeden 10 sayısını arıyoruz, false (bulunamadı) dönmeli.
-            Assert.False(tree.Search(10), "Boş ağaçta arama yapıldığında hata verdi veya true döndü!");
+            Assert.False(tree.Search(10), "Empty tree: Search returned true instead of false!");
         }
     }
 }
