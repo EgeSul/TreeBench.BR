@@ -7,7 +7,6 @@ using TreeBench.API.Hubs;
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}")
-    .WriteTo.File("logs/treebench_api_perf.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 try
@@ -55,10 +54,12 @@ try
 
     app.UseDefaultFiles();
     app.UseStaticFiles();
-    app.UseCors("AllowAll");
-    app.MapControllers();
 
-    // YENİ: Canlı yayın frekansımızı (Endpoint) belirledik
+    app.UseRouting();
+
+    app.UseCors("AllowAll");
+
+    app.MapControllers();
     app.MapHub<BenchmarkHub>("/benchmarkHub");
 
     Log.Information("🚀 TreeBench API + SignalR successfully started!");

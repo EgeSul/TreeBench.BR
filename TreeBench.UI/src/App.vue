@@ -156,7 +156,7 @@ const isAiOpen = ref(false);
 const benchmarkResults = ref([]); 
 const errorMsg = ref('');
 
-const liveProgress = ref({ tree: 'Hazırlanıyor...', stage: 'Bekleniyor', percent: 0 });
+const liveProgress = ref({ tree: 'Ready...', stage: 'Waited...', percent: 0 });
 let hubConnection = null;
 
 const userQuery = ref('');
@@ -229,7 +229,7 @@ watch(lang, () => {
 
 onMounted(() => {
   hubConnection = new signalR.HubConnectionBuilder()
-    .withUrl("http://localhost:5274/benchmarkHub")
+    .withUrl("http://localhost:5174/benchmarkHub")
     .withAutomaticReconnect()
     .build();
 
@@ -350,7 +350,7 @@ const runBenchmark = async () => {
   liveProgress.value = { tree: 'Hazırlanıyor...', stage: 'Running', percent: 0 };
   
   try {
-    const response = await fetch('http://localhost:5274/api/Benchmark/run?mode=1', {
+    const response = await fetch('http://localhost:5174/api/Benchmark/run?mode=1', {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
     });

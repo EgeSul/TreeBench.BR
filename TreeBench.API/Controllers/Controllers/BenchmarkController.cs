@@ -33,7 +33,19 @@ namespace TreeBench.API.Controllers
         [HttpPost("run")]
         public async Task<IActionResult> RunBenchmark([FromQuery] int mode = 1)
         {
-            var testData = await Task.Run(() => _dataGenerator.FetchDataFromSql());
+            List<int> testData = null;
+
+            try
+            {
+                using (var cts = new CancellationTokenSource(TimeSpan.FromSeconds(2)))
+                {
+                    testData = await Task.Run(() => _dataGenerator.FetchDataFromSql(), cts.Token);
+                }
+            }
+            catch (Exception)
+            {
+                testData = null;
+            }
 
             if (testData == null || testData.Count == 0)
             {
