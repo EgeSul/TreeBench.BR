@@ -128,7 +128,7 @@ In version 2.0+, the tree architecture underwent a massive refactoring process. 
 
 This guarantees that all performance metrics (Stopwatch operations) and null-reference safety checks are uniformly executed before reaching the specific algorithmic behaviors (InsertInternal, SearchInternal, DeleteInternal) of the concrete tree implementations.
 
-# Algorithmic Execution Pipeline
+### Algorithmic Execution Pipeline
     
 ```mermaid
 
@@ -198,7 +198,7 @@ Connect to the Dockerized SQL Server via SQL Server Management Studio (SSMS) or 
 
 Open a New Query and run the provided SQL script to seed 100,000 records:
 
-SQL
+    SQL
 
     CREATE DATABASE TreeBenchDB;
     GO
