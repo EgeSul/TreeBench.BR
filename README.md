@@ -80,12 +80,14 @@ Below is the updated layout of the solution, exhibiting a clean Separation of Co
     └── 📂 Services/                 # Telemetry Profiler & Dapper Data Ingestion
 ```
 
-🏗️ Docker Architecture & Real-Time Data Flow
+---
+
+## 🏗️ Docker Architecture & Real-Time Data Flow
 
 To maintain a production-grade ecosystem, TreeBench implements strict modularity. The entire system is spun up using Docker Compose, creating an isolated internal bridge network (treebench-network).
 
 
-```
+```mermaid
 
 graph TD
     subgraph Browser ["Client Browser"]
@@ -120,15 +122,16 @@ graph TD
     
 ```
 
-🌳 Models Tree Update (Template Method Refactoring)
+## 🌳 Models Tree Update (Template Method Refactoring)
 
 In version 2.0+, the tree architecture underwent a massive refactoring process. Instead of individual trees handling their own edge cases, execution timers, and validation logic, the system enforces the Template Method Design Pattern via an abstract BaseBalancedTree class.
 
 This guarantees that all performance metrics (Stopwatch operations) and null-reference safety checks are uniformly executed before reaching the specific algorithmic behaviors (InsertInternal, SearchInternal, DeleteInternal) of the concrete tree implementations.
 
-Algorithmic Execution Pipeline
+# Algorithmic Execution Pipeline
     
-```
+```mermaid
+
 graph TD
     subgraph ClientRequest ["Client / Profiler Service"]
         Req[Initiate Tree Operation <br> Insert / Search / Delete]
@@ -169,17 +172,19 @@ graph TD
         
 ```
 
-🚀 Installation & Getting Started (Docker Mode)
+## 🚀 Installation & Getting Started (Docker Mode)
 
 Forget manual dependency setups. You only need Docker Desktop installed on your machine.
-1. Fire up the Ecosystem
+
+# 1. Fire up the Ecosystem
 
 Open a terminal in the root directory (where docker-compose.yml is located) and run:
 
     docker compose up -d --build
 
 This command will pull the SQL Server, build the .NET 10 API, compile the Vue 3 application, and wire them all together in an isolated network.
-2. Seed the Database
+
+# 2. Seed the Database
 
 Connect to the Dockerized SQL Server via SQL Server Management Studio (SSMS) or Azure Data Studio:
 
@@ -215,14 +220,16 @@ SQL
     GO
 
 (Note: If you skip this step, the API's Fault Tolerance mechanism will auto-generate an in-memory dataset without crashing!)
-3. Launch the Dashboard
+
+# 3. Launch the Dashboard
 
 Open your browser and navigate to:
 
 👉 http://localhost:5173
 
 Click the "Run Benchmark" button to watch the real-time SignalR progress bar stream telemetry and render the comprehensive ApexCharts performance analytics.
-🗺️ Development Roadmap
+
+## 🗺️ Development Roadmap
 
     [x] v1.0.0 - AVL & Red-Black Tree benchmarking with advanced memory profiling.
 
@@ -236,6 +243,6 @@ Click the "Run Benchmark" button to watch the real-time SignalR progress bar str
 
     [x] v4.0.0 - SignalR real-time telemetry streaming, xUnit & Moq automated testing suite, and advanced robust error handling.
 
-📄 License & Architecture
+## 📄 License & Architecture
 
 This architecture is completely open-source and released under the MIT License. Designed and engineered for high-performance enterprise benchmarking analysis.
