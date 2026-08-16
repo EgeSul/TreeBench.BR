@@ -463,9 +463,9 @@ dotnet run --configuration Release
 <br>[X] v1.0.0 - AVL & Red-Black Tree benchmarking with advanced memory profiling.
 <br>[X] v1.5.0 - .NET Dependency Injection
 <br>[X] v2.0.0 - Abstract Template Engine refactoring, Fallback architecture, Serilog structure, Multi-way structures (B+ Tree), and spatial indexing (Quadtree).
-<br>[X] v2.5.0 - Web API integration, asynchronous execution, and defensive fallback pipeline
-<br>[X] v3.0.0 - Docker containerization, CI/CD GitHub Actions pipeline, and SignalR real-time telemetry streaming.
-<br>[ ] v4.0.0 - CI/CD GitHub Actions pipeline, Unit Testing (xUnit/Moq), and SignalR real-time telemetry streaming.
+<br>[] v2.5.0 - Web API integration, asynchronous execution, and defensive fallback pipeline
+<br>[] v3.0.0 - Docker containerization, CI/CD GitHub Actions pipeline, and SignalR real-time telemetry streaming.
+<br>[] v4.0.0 - CI/CD GitHub Actions pipeline, Unit Testing (xUnit/Moq), and SignalR real-time telemetry streaming.
 
 ---
 
