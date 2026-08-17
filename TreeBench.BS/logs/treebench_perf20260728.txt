@@ -1,0 +1,34 @@
+2026-07-28 16:34:41.672 +03:00 [INF] ==================================================
+2026-07-28 16:34:41.710 +03:00 [INF]  TREEBENCH PERFORMANCE LAB INITIALIZING (v2.0)...
+2026-07-28 16:34:41.711 +03:00 [INF] ==================================================
+2026-07-28 16:34:41.722 +03:00 [INF] ⏳ Fetching 100,000 records from SQL Server (SQLEXPRESS)...
+2026-07-28 16:34:58.803 +03:00 [WRN] [!] WARNING: SQL Server source not found or connection failed!
+2026-07-28 16:34:58.806 +03:00 [WRN] [!] SWITCHING TO ENTERPRISE FALLBACK MODE: Generating in-memory fallback dataset...
+2026-07-28 16:34:58.808 +03:00 [INF] [+] Fallback dataset successfully initialized with 100,000 mock records!
+2026-07-28 16:34:58.812 +03:00 [INF] 
+==================================================
+2026-07-28 16:34:58.814 +03:00 [INF]    SELECT BENCHMARK MODE:
+2026-07-28 16:34:58.816 +03:00 [INF] 1. Insert & Search Performance Test
+2026-07-28 16:34:58.818 +03:00 [INF] 2. Heavy Ingestion & Deletion Stress Test
+2026-07-28 16:34:58.819 +03:00 [INF] 3. Topological Analysis & Metrics
+2026-07-28 16:34:58.820 +03:00 [INF] ==================================================
+2026-07-28 16:41:05.816 +03:00 [INF] 
+==================================================
+2026-07-28 16:41:05.817 +03:00 [INF] ⚔️  BENCHMARK COMPETITION STARTING...
+2026-07-28 16:41:05.819 +03:00 [INF] ==================================================
+
+2026-07-28 16:41:05.882 +03:00 [INF] 📊 [AvlTree] Insert: 43.53ms, Search: 1.84ms, Delete: 4.04ms
+2026-07-28 16:41:14.648 +03:00 [INF] ==================================================
+2026-07-28 16:41:14.681 +03:00 [INF]  TREEBENCH PERFORMANCE LAB INITIALIZING (v2.0)...
+2026-07-28 16:41:14.682 +03:00 [INF] ==================================================
+2026-07-28 16:41:14.692 +03:00 [INF] ⏳ Fetching 100,000 records from SQL Server (SQLEXPRESS)...
+2026-07-28 16:41:31.437 +03:00 [WRN] [!] WARNING: SQL Server source not found or connection failed!
+2026-07-28 16:41:31.440 +03:00 [WRN] [!] SWITCHING TO ENTERPRISE FALLBACK MODE: Generating in-memory fallback dataset...
+2026-07-28 16:41:31.443 +03:00 [INF] [+] Fallback dataset successfully initialized with 100,000 mock records!
+2026-07-28 16:41:31.448 +03:00 [INF] 
+==================================================
+2026-07-28 16:41:31.449 +03:00 [INF]    SELECT BENCHMARK MODE:
+2026-07-28 16:41:31.449 +03:00 [INF] 1. Insert & Search Performance Test
+2026-07-28 16:41:31.450 +03:00 [INF] 2. Heavy Ingestion & Deletion Stress Test
+2026-07-28 16:41:31.451 +03:00 [INF] 3. Topological Analysis & Metrics
+2026-07-28 16:41:31.452 +03:00 [INF] ==================================================

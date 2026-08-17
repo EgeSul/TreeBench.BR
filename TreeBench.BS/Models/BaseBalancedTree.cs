@@ -10,7 +10,12 @@ namespace TreeBench.BS.Models
 
         public int Count => count;
         public int GetRotationsCount() => rotationsCount;
-        public void ResetMetrics() => rotationsCount = 0;
+        public void ResetMetrics() {
+            
+            rotationsCount = 0;
+            count = 0;
+            stepCount = 0; 
+        }
 
         public bool Search(int key)
         {
@@ -33,5 +38,12 @@ namespace TreeBench.BS.Models
         public abstract int GetMaxDepth();
         public abstract int GetMinDepth();
         public abstract void Insert(int key);
+
+        protected long stepCount = 0;
+
+        public long GetStepCount()
+        {
+            return stepCount;
+        }
     }
 }

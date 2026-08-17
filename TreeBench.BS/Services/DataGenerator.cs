@@ -2,14 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-
+using Microsoft.Data.SqlClient;
 
 namespace TreeBench.BS.Services
 {
     public class DataGenerator
     {
-                                               //(Server Name)
-        private const string ConnectionString = "Server=DESKTOP-CQCV21I\\SQLEXPRESS;Database=TreeBenchDB;Trusted_Connection=True;";
+        private readonly string ConnectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING")
+            ?? "Server=DESKTOP-CQCV21I\\SQLEXPRESS;Database=TreeBenchDB;Trusted_Connection=True;TrustServerCertificate=True;";
 
         public List<int> FetchDataFromSql()
         {
@@ -24,7 +24,7 @@ namespace TreeBench.BS.Services
                 catch (Exception ex)
                 {
                     Console.WriteLine($"[!] SQL Bağlantı Hatası: {ex.Message}");
-                    return new List<int>(); 
+                    return new List<int>();
                 }
             }
         }

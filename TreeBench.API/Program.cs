@@ -2,34 +2,43 @@ using Serilog;
 using TreeBench.BS.Interfaces;
 using TreeBench.BS.Models;
 using TreeBench.BS.Services;
+using TreeBench.API.Hubs;
 
-// --- SERILOG CONFIGURATION FOR API ---
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}")
-    .WriteTo.File("logs/treebench_api_perf.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 try
 {
     Log.Information("==================================================");
-    Log.Information(" TREEBENCH API ENGINE INITIALIZING...");
+    Log.Information(" TREEBENCH SIGNALR API ENGINE INITIALIZING...");
     Log.Information("==================================================");
 
     var builder = WebApplication.CreateBuilder(args);
 
-    builder.Host.UseSerilog();
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowAll", policy =>
+        {
+            policy.SetIsOriginAllowed(_ => true)
+                  .AllowAnyMethod()
+                  .AllowAnyHeader()
+                  .AllowCredentials();
+        });
+    });
 
-    // --- CONTROLLERS & OPENAPI (SWAGGER) ---
+    builder.Host.UseSerilog();
     builder.Services.AddControllers();
+
+    builder.Services.AddSignalR();
+
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddOpenApi();
 
-    // --- TREEBENCH.BS CORE SERVICES (DEPENDENCY INJECTION) ---
     builder.Services.AddSingleton<DataGenerator>();
     builder.Services.AddSingleton<BenchmarkService>();
 
-    // Managed Trees
     builder.Services.AddTransient<IBalancedTree, AvlTree>();
     builder.Services.AddTransient<IBalancedTree, RedBlackTree>();
     builder.Services.AddTransient<IBalancedTree, SplayTree>();
@@ -38,17 +47,22 @@ try
 
     var app = builder.Build();
 
-    // --- HTTP REQUEST PIPELINE ---
     if (app.Environment.IsDevelopment())
     {
         app.MapOpenApi();
     }
 
-    app.UseHttpsRedirection();
-    app.UseAuthorization();
-    app.MapControllers();
+    app.UseDefaultFiles();
+    app.UseStaticFiles();
 
-    Log.Information("🚀 TreeBench API successfully started and listening for requests.");
+    app.UseRouting();
+
+    app.UseCors("AllowAll");
+
+    app.MapControllers();
+    app.MapHub<BenchmarkHub>("/benchmarkHub");
+
+    Log.Information("🚀 TreeBench API + SignalR successfully started!");
     app.Run();
 }
 catch (Exception ex)
